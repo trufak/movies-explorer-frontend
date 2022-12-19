@@ -5,7 +5,7 @@
   padding: 0 70px;
   box-sizing: border-box;
   display: grid;
-  grid-template-columns: max-content 1fr;
+  grid-template-columns: 200px 1fr;
   grid-template-rows: auto;
   grid-template-areas: "logo menu";
   align-items: center;
@@ -34,77 +34,11 @@
   border: none;
 }
 
-.Header__menu-cover {
-  grid-area: menu;
-}
-
-@media screen and (max-width: 768px) {
-  .Header__menu-cover_hidden {
-    visibility: hidden;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .Header__menu-cover {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 100vw;
-    background-color: rgba(0,0,0,0.3);
-    display: flex;
-    justify-content: flex-end;
-  }
-}
-
-.Header__menu {
-  display: grid;
-  grid-template-columns: 1fr max-content;
-  grid-template-rows: auto;
-}
-
-@media screen and (max-width: 768px) {
-  .Header__menu {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    justify-items: center;
-    height: 100%;
-    width: 68%;
-    background-color: #202020;
-  }
-}
-
 .Header__sign-container {
   justify-self: end;
   display: flex;
   align-items: center;
-}
-
-.Header__profile {
-  width: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 14px;
-}
-
-@media screen and (max-width: 768px) {
-  .Header__profile {
-    align-self: end;
-    margin-bottom: 92px;
-  }
-}
-
-.Header__profile-icon {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  background-color: #313131;
-  background-image: url(../../images/account.svg);
-  background-size: 40%;
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 6px;
+  width: 200px;
 }
 
 .Header__signin {
@@ -137,10 +71,5 @@
   background-repeat: no-repeat;
   color: #FFFFFF;
   cursor: pointer;
-  justify-self: end;
-}
-
-.Header__close-button {
-  margin: 25px 25px 0 0;
   justify-self: end;
 }

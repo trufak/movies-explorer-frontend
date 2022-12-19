@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import './Header.css';
 import logo from '../../images/logo.jpg';
 import Navigation from '../Navigation/Navigation';
-import { useState } from 'react';
+import Menu from '../Menu/Menu';
 
 const Header = ({ loggedIn }) => {
 
@@ -12,12 +13,6 @@ const Header = ({ loggedIn }) => {
     setIsOpenMobileMenu(true);
   };
 
-  const handleClickCover = (e) => {
-    if (e.target.classList.contains('Header__menu-cover')) {
-      closeMobileMenu();
-    };
-  }
-
   const closeMobileMenu = () => {
     setIsOpenMobileMenu(false);
   };
@@ -26,29 +21,10 @@ const Header = ({ loggedIn }) => {
     <div className='Header'>
       <img className='Header__logo' src={logo} alt='логотип' />
       {loggedIn
-        ? <div className={`
-            Header__menu-cover
-            ${!isOpenMobileMenu ? 'Header__menu-cover_hidden' : ''}`}
-            onClick={handleClickCover}
-          >
-            <div className='Header__menu'>
-              <button
-                className='close-button Header__close-button Header_only-mobile'
-                type='button'
-                onClick={closeMobileMenu}
-              />
-              <Navigation />
-              <Link
-                className='link Header__profile'
-                to='/profile'
-              >
-                Аккаунт
-                <div
-                  className='Header__profile-icon'
-                />
-              </Link>
-            </div>
-          </div>
+        ? <Menu
+            isOpenMobileMenu={isOpenMobileMenu}
+            closeMobileMenu={closeMobileMenu}
+          />
         : <div className='Header__sign-container'>
             <Link
               className='link'

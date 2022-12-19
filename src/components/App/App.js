@@ -10,7 +10,7 @@ import Register from '../Register/Register';
 
 function App() {
 
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   return (
     <div className="App">
