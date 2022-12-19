@@ -14,6 +14,13 @@
 @media screen and (max-width: 768px) {
   .Header {
     padding: 0 30px;
+    grid-template-columns: auto 1fr;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .Header {
+    padding: 0 14px;
   }
 }
 
@@ -38,7 +45,14 @@
   justify-self: end;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   width: 200px;
+}
+
+@media screen and (max-width: 768px) {
+  .Header__sign-container {
+    width: auto;
+  }
 }
 
 .Header__signin {
@@ -50,6 +64,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 320px) {
+  .Header__signin {
+    width: 54px;
+    height: 26px;
+    margin-left: 14px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .Header__sign-link {
+    font-size: 10px;
+    line-height: 16px;
+  }
 }
 
 .Header__signin-link {

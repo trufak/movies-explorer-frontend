@@ -44,6 +44,12 @@
   }
 }
 
+@media screen and (max-width: 320px) {
+  .Menu__container {
+    width: 100%;
+  }
+}
+
 .Menu__close-button {
   margin: 23px 23px 0 0;
   justify-self: end;

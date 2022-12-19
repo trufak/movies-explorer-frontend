@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import './Header.css';
 import logo from '../../images/logo.jpg';
-import Navigation from '../Navigation/Navigation';
 import Menu from '../Menu/Menu';
 
 const Header = ({ loggedIn }) => {
@@ -27,14 +26,14 @@ const Header = ({ loggedIn }) => {
           />
         : <div className='Header__sign-container'>
             <Link
-              className='link'
+              className='link Header__sign-link'
               to='/signup'
             >
               Регистрация
             </Link>
             <div className='Header__signin'>
               <Link
-                className='link Header__signin-link'
+                className='link Header__sign-link Header__signin-link'
                 to='/signin'
               >
                 Войти
