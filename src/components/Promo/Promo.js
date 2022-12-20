@@ -6,7 +6,7 @@ const Promo = () => {
     <div className="Promo">
       <div className="Promo__container">
         <h1 className="Promo__title">
-          Курс Веб-разработки - это одно из самых сложных испытаний в моей жизни
+          Учебный проект студента факультета Веб-разработки.
         </h1>
         <NavTab />
       </div>
