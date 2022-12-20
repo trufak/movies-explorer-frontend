@@ -3,19 +3,19 @@ import './AboutProject.css';
 const AboutProject = () => {
   return (
     <div className='AboutProject'>
-      <h2 className='AboutProject__title'> О проекте </h2>
+      <h2 className='title'> О проекте </h2>
       <div className='AboutProject__table'>
         <h3 className='AboutProject__column-title'>
           Дипломный проект включал 5 этапов
         </h3>
-        <p className='AboutProject__text'>
+        <p className='text'>
           Составление плана, работу над бэкендом,
           вёрстку, добавление функциональности и финальные доработки.
         </p>
         <h3 className='AboutProject__column-title'>
           На выполнение диплома ушло 5 недель
         </h3>
-        <p className='AboutProject__text'>
+        <p className='text'>
           У каждого этапа был мягкий и жёсткий дедлайн,
           которые нужно было соблюдать, чтобы успешно защититься.
         </p>
