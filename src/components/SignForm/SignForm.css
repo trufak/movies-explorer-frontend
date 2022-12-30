@@ -1,0 +1,145 @@
+.SignForm {
+  width: 396px;
+  margin: 0 auto;
+  padding: 70px 0;
+  display: grid;
+}
+
+@media screen and (max-width: 320px) {
+  .SignForm {
+    width: 260px;
+  }
+}
+
+.SignForm__logo {
+  width: 38px;
+  height: 38px;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 50%;
+  border: none;
+}
+
+.SignForm__title {
+  margin: 40px 0 0;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.SignForm__form {
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 320px) {
+  .SignForm__form {
+    margin-top: 80px;
+  }
+}
+
+.SignForm__inputs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  grid-template-columns: 1fr;
+
+  row-gap: 20px;
+  height: 266px;
+  align-items: start;
+}
+
+.SignForm__input-container {
+  display: grid;
+  row-gap: 10px;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+}
+
+.SignForm__label {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #8B8B8B;
+}
+
+.SignForm__input {
+  background: #2F2F2F;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #FFFFFF;
+  padding: 15px;
+}
+
+.SignForm__error-input {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #EE3465;
+}
+
+.SignForm__submit-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  width: 100%;
+  padding: 13px 0 15px;
+  margin: 70px auto 16px;
+  background: #4285F4;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 320px) {
+  .SignForm__submit-button {
+    margin: 160px auto 14px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
+.SignForm__link-container {
+  display: flex;
+  justify-content: center;
+}
+
+.SignForm__caption-link {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #8B8B8B;
+}
+
+@media screen and (max-width: 320px) {
+  .SignForm__caption-link {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
+.SignForm__link {
+  font-size: 14px;
+  line-height: 17px;
+  margin-left: 6px;
+  color: #4285F4;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 320px) {
+  .SignForm__link {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

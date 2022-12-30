@@ -11,14 +11,24 @@ import Register from '../Register/Register';
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState({
+    name: 'Сергей',
+    email: 'truf@mail.ru'
+  });
 
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={ <Main loggedIn={loggedIn} /> } />
-        <Route path='/movies' element={ <Movies /> } />
-        <Route path='/saved-movies' element={ <SavedMovies /> } />
-        <Route path='/profile' element={ <Profile /> } />
+        <Route path='/movies' element={ <Movies loggedIn={loggedIn}/> } />
+        <Route path='/saved-movies' element={ <SavedMovies loggedIn={loggedIn}/> } />
+        <Route path='/profile' element={
+          <Profile
+            loggedIn={loggedIn}
+            user={user}
+          />
+        }
+        />
         <Route path='/signin' element={ <Login /> } />
         <Route path='/signup' element={ <Register /> } />
       </Routes>

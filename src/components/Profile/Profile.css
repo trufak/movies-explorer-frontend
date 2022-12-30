@@ -1,0 +1,115 @@
+.Profile {
+  padding: 70px 0;
+  display: grid;
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .Profile {
+    padding: 240px 0 270px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .Profile {
+    padding: 70px 0 40px;
+  }
+}
+
+.Profile__title {
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.Profile__form {
+  margin-top: 123px;
+  display: grid;
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .Profile__form {
+    margin-top: 96px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .Profile__form {
+    margin-top: 80px;
+  }
+}
+
+.Profile__inputs {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  width: 410px;
+}
+
+@media screen and (max-width: 450px) {
+  .Profile__inputs {
+    width: 260px;
+  }
+}
+
+.Profile__input-container {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #424242;
+  margin-bottom: 16px;
+}
+
+.Profile__input-container:last-child {
+  border: none;
+  margin: 0;
+}
+
+.Profile__label {
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.Profile__input {
+  border: none;
+  background-color: transparent;
+  outline: 0;
+  color: #ffff;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  text-align: end;
+}
+
+.Profile__submit-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  padding: 0;
+  margin: 220px auto 16px;
+  background-color: transparent;
+  color: #ffff;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+.Profile__exit-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  color: #EE3465;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  cursor: pointer;
+}

@@ -1,0 +1,113 @@
+.SearchForm {
+  padding: 70px 70px 47px;
+  display: grid;
+}
+
+@media screen and (max-width: 768px) {
+  .SearchForm {
+    padding: 80px 30px 60px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .SearchForm {
+    padding: 90px 14px 50px;
+  }
+}
+
+.SearchForm__search-row {
+  width: 100%;
+  padding-bottom: 13px;
+  border-bottom: 1px solid #424242;
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.SearchForm__search-button {
+  width: 34px;
+  height: 34px;
+  background-color: #4285F4;
+  background-image: url(../../images/search.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 40%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: none;
+}
+
+.SearchForm__input {
+  background-color: transparent;
+  border: none;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 34px;
+  color: #ffff;
+  padding: 0;
+  outline: none;
+  width: 100%
+}
+
+@media screen and (max-width: 320px) {
+  .SearchForm__input {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+.SearchForm__chortfilm {
+  display: flex;
+  margin-top: 32px;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+@media screen and (max-width: 320px) {
+  .SearchForm__chortfilm {
+    margin-top: 40px;
+    font-size: 11px;
+    line-height: 18px;
+  }
+}
+
+.SearchForm__chortfilm-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 36px;
+  height: 20px;
+  border: none;
+  background: #8B8B8B;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 20px;
+  margin-right: 14px;
+}
+
+.SearchForm__chortfilm-button_true {
+  background: #3DDC84;
+  justify-content: flex-end;
+}
+
+.SearchForm__chortfilm-circle {
+  width: 8px;
+  height: 8px;
+  background-color: #FFFF;
+  border-radius: 50%;
+  border: none;
+}
+
+@media screen and (max-width: 768px) {
+  .SearchForm__chortfilm-button {
+    justify-self: end;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .SearchForm__chortfilm-button {
+    justify-self: center;
+  }
+}
