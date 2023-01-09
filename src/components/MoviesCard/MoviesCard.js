@@ -16,7 +16,7 @@ const MoviesCard = ({ movie, isSavedClass, unsavedLock }) => {
     <div className='MoviesCard'>
       <div className='MoviesCard__about'>
         <span className='MoviesCard__name'>{movie.name}</span>
-        <span className='MoviesCard__time'>{movie.duration}</span>
+        <span className='MoviesCard__time'>{`${movie.duration} минут`}</span>
       </div>
       <img
         className='MoviesCard__mask'

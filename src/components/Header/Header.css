@@ -66,11 +66,22 @@
   justify-content: center;
 }
 
+.Header__signin {
+  font-weight: 500;
+}
+
 @media screen and (max-width: 320px) {
   .Header__signin {
     width: 54px;
     height: 26px;
     margin-left: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Header__sign-link {
+    font-size: 12px;
+    line-height: 16px;
   }
 }
 
@@ -96,9 +107,16 @@
   border: none;
   background: transparent;
   background-image: url(../../images/menu.svg);
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
   color: #FFFFFF;
   cursor: pointer;
   justify-self: end;
+}
+
+@media screen and (max-width: 320px) {
+  .Header__menu-button {
+    width: 40px;
+    height: 43px;
+  }
 }

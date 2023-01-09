@@ -35,5 +35,22 @@
 @media screen and (max-width: 320px) {
   .Promo__container {
     height: 586px;
+    grid-template-rows: 1fr 60px;
+  }
+}
+
+.Promo__title {
+  padding-top: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .Promo__title {
+    padding-top: 64px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .Promo__title {
+    padding-top: 20px;
   }
 }

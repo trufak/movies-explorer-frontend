@@ -4,7 +4,7 @@ const Techs = () => {
   return (
     <div className='Techs'>
       <h2 className='title'>Технологии</h2>
-      <h3 className='big-text Techs__subtitle'>7 Технологий</h3>
+      <h3 className='big-text Techs__subtitle'>7 технологий</h3>
       <p className='text Techs__text'>На курсе веб-разработки мы освоили технологии,
       которые применили в дипломном проекте.</p>
       <ul className='Techs__technics'>

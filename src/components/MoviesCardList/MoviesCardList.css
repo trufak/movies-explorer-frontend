@@ -1,12 +1,12 @@
 .MoviesCardList {
-  padding: 70px 70px 80px;
+  padding: 70px;
   display: grid;
   justify-content: center;
 }
 
 @media screen and (max-width: 768px) {
   .MoviesCardList {
-    padding: 70px 30px 80px;
+    padding: 70px 30px;
   }
 }
 
@@ -51,7 +51,7 @@
   appearance: none;
   border: none;
   padding: 0;
-  margin: 80px auto 0;
+  margin: 60px auto 0;
   width: 320px;
   height: 36px;
   background: #2F2F2F;
@@ -61,6 +61,12 @@
   font-size: 12px;
   line-height: 15px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .MoviesCardList__button {
+    margin-top: 80px;
+  }
 }
 
 @media screen and (max-width: 320px) {
