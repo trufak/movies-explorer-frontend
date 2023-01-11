@@ -7,6 +7,7 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
         />
         <Route path='/signin' element={ <Login /> } />
         <Route path='/signup' element={ <Register /> } />
+        <Route path='*' element={ <NotFoundPage /> } />
       </Routes>
     </div>
   );

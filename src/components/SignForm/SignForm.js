@@ -1,6 +1,7 @@
 import './SignForm.css';
-import logo from '../../images/logo.jpg'
+import logo from '../../images/logo.jpg';
 import { Link } from 'react-router-dom';
+import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 
 const SignForm = ({
   title,
@@ -10,6 +11,9 @@ const SignForm = ({
   linkText,
   pathLink
 }) => {
+
+  const {values, handleChange, errors, isValid, resetForm, setValues, setIsValid} = useFormAndValidation();
+
   return (
     <div className='SignForm'>
       <img className='SignForm__logo' src={logo} alt='логотип' />
@@ -24,8 +28,13 @@ const SignForm = ({
                   <input
                     className='SignForm__input'
                     type={input.type}
+                    name={input.name}
+                    value={values[input.name] || ""}
+                    onChange={handleChange}
                   />
-                  <span className='SignForm__error-input' />
+                  <span className='SignForm__error-input'>
+                    {errors[input.name]}
+                  </span>
                 </li>
               )
             })

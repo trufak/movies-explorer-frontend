@@ -12,6 +12,12 @@
   }
 }
 
+@media screen and (max-width: 320px) {
+  .Navigation {
+    margin-top: 100px;
+  }
+}
+
 .Navigation__links {
   list-style: none;
   padding: 0;
@@ -28,6 +34,12 @@
     grid-template-columns: auto;
     grid-template-rows: repeat(3, auto);
     row-gap: 27px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .Navigation__links {
+    row-gap: 24px;
   }
 }
 
