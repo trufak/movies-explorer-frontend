@@ -1,7 +1,7 @@
 import './SignForm.css';
-import logo from '../../images/logo.jpg';
 import { Link } from 'react-router-dom';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
+import Logo from '../Logo/Logo';
 
 const SignForm = ({
   title,
@@ -15,24 +15,24 @@ const SignForm = ({
   const {values, handleChange, errors, isValid, resetForm, setValues, setIsValid} = useFormAndValidation();
 
   return (
-    <div className='SignForm'>
-      <img className='SignForm__logo' src={logo} alt='логотип' />
-      <h1 className='SignForm__title'>{title}</h1>
-      <form className='SignForm__form'>
-        <ul className='SignForm__inputs'>
+    <main className='signForm'>
+      <Logo />
+      <h1 className='signForm__title'>{title}</h1>
+      <form className='signForm__form'>
+        <ul className='signForm__inputs'>
           {
             inputs.map((input, index)=>{
               return (
-                <li className='SignForm__input-container' key={index}>
-                  <label className='SignForm__label'>{input.name}</label>
+                <li className='signForm__input-container' key={index}>
+                  <label className='signForm__label'>{input.name}</label>
                   <input
-                    className='SignForm__input'
+                    className='signForm__input'
                     type={input.type}
                     name={input.name}
                     value={values[input.name] || ""}
                     onChange={handleChange}
                   />
-                  <span className='SignForm__error-input'>
+                  <span className='signForm__error-input'>
                     {errors[input.name]}
                   </span>
                 </li>
@@ -41,17 +41,17 @@ const SignForm = ({
           }
         </ul>
         <button
-          className='SignForm__submit-button'
+          className='signForm__submit-button'
           type='submit'
         >
           {textButton}
         </button>
       </form>
-      <div className='SignForm__link-container'>
-        <span className='SignForm__caption-link'>{captionAfterLink}</span>
-        <Link className='SignForm__link' to={pathLink}>{linkText}</Link>
+      <div className='signForm__link-container'>
+        <span className='signForm__caption-link'>{captionAfterLink}</span>
+        <Link className='signForm__link' to={pathLink}>{linkText}</Link>
       </div>
-    </div>
+    </main>
   )
 };
 

@@ -1,4 +1,4 @@
-.Header {
+.header {
   height: 74px;
   width: 100%;
   margin: 0;
@@ -12,36 +12,29 @@
 }
 
 @media screen and (max-width: 768px) {
-  .Header {
+  .header {
     padding: 0 30px;
     grid-template-columns: auto 1fr;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .Header {
+  .header {
     padding: 0 14px;
   }
 }
 
 @media screen and (min-width: 769px) {
-  .Header_only-mobile {
+  .header_only-mobile {
     display: none;
   }
 }
 
-/* Логотип */
-.Header__logo {
+.header__logo {
   grid-area: logo;
-  width: 38px;
-  height: 38px;
-  object-fit: cover;
-  border-radius: 50%;
-  overflow: hidden;
-  border: none;
 }
 
-.Header__sign-container {
+.header__sign-container {
   justify-self: end;
   display: flex;
   align-items: center;
@@ -50,12 +43,12 @@
 }
 
 @media screen and (max-width: 768px) {
-  .Header__sign-container {
+  .header__sign-container {
     width: auto;
   }
 }
 
-.Header__signin {
+.header__signin {
   width: 76px;
   height: 32px;
   background-color: #3DDC84;
@@ -66,42 +59,43 @@
   justify-content: center;
 }
 
-.Header__signin {
+.header__signin {
   font-weight: 500;
 }
 
 @media screen and (max-width: 320px) {
-  .Header__signin {
+  .header__signin {
     width: 54px;
     height: 26px;
     margin-left: 14px;
   }
 }
 
+.header__sign-link {
+  font-weight: 500;
+}
+
 @media screen and (max-width: 768px) {
-  .Header__sign-link {
+  .header__sign-link {
     font-size: 12px;
     line-height: 16px;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .Header__sign-link {
+  .header__sign-link {
     font-size: 10px;
     line-height: 16px;
   }
 }
 
-.Header__signin-link {
+.header__signin-link {
   text-decoration: none;
   color: rgb(0, 0, 0);
 }
 
-.Header__menu-button {
+.header__menu-button {
   grid-area: menu;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   width: 44px;
   height: 44px;
   border: none;
@@ -110,12 +104,11 @@
   background-size: 100%;
   background-repeat: no-repeat;
   color: #FFFFFF;
-  cursor: pointer;
   justify-self: end;
 }
 
 @media screen and (max-width: 320px) {
-  .Header__menu-button {
+  .header__menu-button {
     width: 40px;
     height: 43px;
   }

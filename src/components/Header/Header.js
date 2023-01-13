@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import './Header.css';
-import logo from '../../images/logo.jpg';
 import Menu from '../Menu/Menu';
+import Logo from '../Logo/Logo';
 
 const Header = ({ loggedIn }) => {
 
@@ -17,23 +17,23 @@ const Header = ({ loggedIn }) => {
   };
 
   return (
-    <div className='Header'>
-      <img className='Header__logo' src={logo} alt='логотип' />
+    <header className='header'>
+      <Logo additionalClass='header__logo'/>
       {loggedIn
         ? <Menu
             isOpenMobileMenu={isOpenMobileMenu}
             closeMobileMenu={closeMobileMenu}
           />
-        : <div className='Header__sign-container'>
+        : <div className='header__sign-container'>
             <Link
-              className='link Header__sign-link'
+              className='link header__sign-link'
               to='/signup'
             >
               Регистрация
             </Link>
-            <div className='Header__signin'>
+            <div className='header__signin'>
               <Link
-                className='link Header__sign-link Header__signin-link'
+                className='link header__sign-link header__signin-link'
                 to='/signin'
               >
                 Войти
@@ -42,12 +42,12 @@ const Header = ({ loggedIn }) => {
           </div>
       }
       {loggedIn && <button
-        className="Header__menu-button Header_only-mobile"
+        className="button header__menu-button header_only-mobile"
         type='button'
         onClick={openMobileMenu}
         />
       }
-    </div>
+    </header>
   )
 };
 

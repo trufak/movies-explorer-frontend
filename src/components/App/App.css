@@ -1,10 +1,16 @@
-.App {
+.app {
   background-color: #202020;
   width: 100%;
+  min-height: 100vh;
   margin: 0;
-  font-family: 'Inter', Courier, monospace;
+  font-family: 'Inter', Courier, monospace, sans-serif;
   color: #FFFF;
   position: relative;
+}
+
+.app__content {
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .link {
@@ -16,17 +22,25 @@
 }
 
 .link:hover {
-  font-weight: 500;
+  opacity: 0.8;
 }
 
 .link_active {
   font-weight: 500;
 }
 
-.close-button {
+.button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.close-button {
   width: 30px;
   height: 30px;
   border: none;
@@ -35,5 +49,4 @@
   background-size: cover;
   background-repeat: no-repeat;
   color: #FFFFFF;
-  cursor: pointer;
 }

@@ -1,4 +1,4 @@
-.MoviesCard {
+.moviesCard {
   width: 100%;
   height: 100%;
   background: #222222;
@@ -11,37 +11,37 @@
 }
 
 @media screen and (max-width: 320px) {
-  .MoviesCard {
+  .moviesCard {
     grid-template-rows: 46px 1fr 57px;
   }
 }
 
-.MoviesCard__about {
+.moviesCard__about {
   padding: 0 18px;
   display: flex;
   justify-content: space-between;
 }
 
 @media screen and (max-width: 320px) {
-  .MoviesCard__about {
+  .moviesCard__about {
     padding: 0 14px;
   }
 }
 
-.MoviesCard__name {
+.moviesCard__name {
   font-weight: 500;
   font-size: 15px;
   line-height: 18px;
 }
 
 @media screen and (max-width: 320px) {
-  .MoviesCard__name {
+  .moviesCard__name {
     font-size: 12px;
     line-height: 18px;
   }
 }
 
-.MoviesCard__time {
+.moviesCard__time {
   font-weight: 400;
   font-size: 13px;
   line-height: 18px;
@@ -49,20 +49,20 @@
 }
 
 @media screen and (max-width: 320px) {
-  .MoviesCard__time {
+  .moviesCard__time {
     font-size: 10px;
     line-height: 18px;
   }
 }
 
-.MoviesCard__mask {
+.moviesCard__mask {
   width: 100%;
   height: 100%;
   object-fit: cover;
   overflow: hidden;
 }
 
-.MoviesCard__save-button {
+.moviesCard__save-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -80,7 +80,7 @@
   cursor: pointer;
 }
 
-.MoviesCard__save-button_isSaved {
+.moviesCard__save-button_isSaved {
   background: #EE3465;
   background-image: url(../../images/beard_ok.svg);
   background-position: center;
@@ -88,7 +88,7 @@
   background-size: 8px 4.5px;
 }
 
-.MoviesCard__save-button_delete {
+.moviesCard__save-button_delete {
   background-image: url(../../images/close_button.svg);
   background-position: center;
   background-repeat: no-repeat;

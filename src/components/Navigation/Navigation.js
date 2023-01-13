@@ -3,16 +3,16 @@ import './Navigation.css';
 
 const Navigation = () => {
   return (
-    <nav className='Navigation'>
-      <ul className='Navigation__links'>
+    <nav className='navigation'>
+      <ul className='navigation__links'>
         <li>
           <NavLink
             to='/'
             className={({isActive})=>
               `link
-              ${isActive && "link_active Navigation__link_active"}
-              Navigation__link
-              Navigation__link_only-mobile`
+              ${isActive && "link_active navigation__link_active"}
+              navigation__link
+              navigation__link_only-mobile`
             }
           >
             Главная
@@ -22,8 +22,8 @@ const Navigation = () => {
           <NavLink
             className={({isActive})=>`
               link
-              ${isActive && "link_active Navigation__link_active"}
-              Navigation__link`
+              ${isActive && "link_active navigation__link_active"}
+              navigation__link`
             }
             to='/movies'
             >
@@ -34,8 +34,8 @@ const Navigation = () => {
           <NavLink
             className={({isActive})=>`
               link
-              ${isActive && "link_active Navigation__link_active"}
-              Navigation__link`
+              ${isActive && "link_active navigation__link_active"}
+              navigation__link`
             }
             to='/saved-movies'
             >

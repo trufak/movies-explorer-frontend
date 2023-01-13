@@ -1,21 +1,21 @@
-.Promo {
+.promo {
   padding: 20px 40px 0;
   box-sizing: border-box;
 }
 
 @media screen and (max-width: 768px) {
-  .Promo {
+  .promo {
     padding: 20px 20px 0;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .Promo {
+  .promo {
     padding: 14px 14px 0;
   }
 }
 
-.Promo__container {
+.promo__container {
   background: #272727;
   border-radius: 10px;
   height: 493px;
@@ -27,30 +27,30 @@
 }
 
 @media screen and (max-width: 768px) {
-  .Promo__container {
+  .promo__container {
     height: 834px;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .Promo__container {
+  .promo__container {
     height: 586px;
     grid-template-rows: 1fr 60px;
   }
 }
 
-.Promo__title {
+.promo__title {
   padding-top: 30px;
 }
 
 @media screen and (max-width: 768px) {
-  .Promo__title {
+  .promo__title {
     padding-top: 64px;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .Promo__title {
+  .promo__title {
     padding-top: 20px;
   }
 }

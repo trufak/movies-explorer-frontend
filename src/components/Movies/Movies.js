@@ -11,14 +11,16 @@ const Movies = ({ loggedIn }) => {
   const [movies, setMovies] = useState(moviesData);
 
   return (
-    <div className='Movies'>
+    <div>
       <Header loggedIn={loggedIn} />
-      <SearchForm />
-      <MoviesCardList
-        movies={movies}
-        isSavedClass='MoviesCard__save-button_isSaved'
-        unsavedLock={true}
-      />
+      <main>
+        <SearchForm />
+        <MoviesCardList
+          movies={movies}
+          isSavedClass='moviesCard__save-button_isSaved'
+          isMoreButton={true}
+        />
+      </main>
       <Footer />
     </div>
   )

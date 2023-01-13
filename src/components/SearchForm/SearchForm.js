@@ -9,25 +9,25 @@ const SearchForm = () => {
   }
 
   return (
-    <form className='SearchForm'>
-      <div className='SearchForm__search-row'>
+    <form className='searchForm'>
+      <div className='searchForm__search-row'>
         <input
-          className='SearchForm__input'
+          className='searchForm__input'
           type='text'
           placeholder='Фильм' />
-        <button type='submit' className='SearchForm__search-button' />
+        <button type='submit' className='searchForm__search-button' />
       </div>
-      <div className='SearchForm__chortfilm'>
-        <div className='SearchForm__chortfilm-content'>
+      <div className='searchForm__chortfilm'>
+        <div className='searchForm__chortfilm-content'>
           <button
               type='button'
               className={`
-                SearchForm__chortfilm-button
-                ${isChortFilm ? 'SearchForm__chortfilm-button_true' : ''}
+                searchForm__chortfilm-button
+                ${isChortFilm ? 'searchForm__chortfilm-button_true' : ''}
               `}
               onClick={changeShortFilm}
             >
-              <div className='SearchForm__chortfilm-circle' />
+              <div className='searchForm__chortfilm-circle' />
           </button>
           <span>Короткометражки</span>
         </div>

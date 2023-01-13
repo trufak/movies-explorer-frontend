@@ -10,16 +10,16 @@ const NotFoundPage = () => {
   };
 
   return (
-    <div className='NotFoundPage'>
-      <h1 className='NotFoundPage__title'>404</h1>
-      <p className='NotFoundPage__subtitle'>Страница не найдена</p>
+    <main className='notFoundPage'>
+      <h1 className='notFoundPage__title'>404</h1>
+      <p className='notFoundPage__subtitle'>Страница не найдена</p>
       <button
-        className='NotFoundPage__back'
+        className='button notFoundPage__back'
         onClick={goBack}
         >
         Назад
       </button>
-    </div>
+    </main>
   )
 }
 

@@ -1,4 +1,4 @@
-.SignForm {
+.signForm {
   width: 396px;
   margin: 0 auto;
   padding: 70px 0;
@@ -6,29 +6,20 @@
 }
 
 @media screen and (max-width: 768px) {
-  .SignForm {
+  .signForm {
     padding: 232px 0;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .SignForm {
+  .signForm {
     width: 260px;
     padding: 56px 0 30px;
     justify-items: center;
   }
 }
 
-.SignForm__logo {
-  width: 38px;
-  height: 38px;
-  object-fit: cover;
-  overflow: hidden;
-  border-radius: 50%;
-  border: none;
-}
-
-.SignForm__title {
+.signForm__title {
   margin: 40px 0 0;
   font-weight: 500;
   font-size: 24px;
@@ -36,23 +27,23 @@
 }
 
 @media screen and (max-width: 320px) {
-  .SignForm__title {
+  .signForm__title {
     margin-top: 50px;
   }
 }
 
-.SignForm__form {
+.signForm__form {
   margin-top: 40px;
   width: 100%;
 }
 
 @media screen and (max-width: 320px) {
-  .SignForm__form {
+  .signForm__form {
     margin-top: 80px;
   }
 }
 
-.SignForm__inputs {
+.signForm__inputs {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -62,7 +53,7 @@
   align-items: start;
 }
 
-.SignForm__input-container {
+.signForm__input-container {
   display: grid;
   row-gap: 10px;
   grid-template-rows: auto;
@@ -70,14 +61,14 @@
   grid-auto-rows: auto;
 }
 
-.SignForm__label {
+.signForm__label {
   font-weight: 400;
   font-size: 10px;
   line-height: 12px;
   color: #8B8B8B;
 }
 
-.SignForm__input {
+.signForm__input {
   background: #2F2F2F;
   border-radius: 8px;
   border: none;
@@ -89,21 +80,26 @@
   padding: 15px;
 }
 
-.SignForm__error-input {
+.signForm__input:focus {
+  box-shadow: 0px 0px 3px rgba(355,355,355,0.1);
+}
+
+.signForm__error-input {
   font-weight: 400;
   font-size: 10px;
   line-height: 12px;
   color: #EE3465;
-  min-height: 24px;
+  min-height: 10px;
+  /* min-height: 24px; */
 }
 
 @media screen and (max-width: 320px) {
-  .SignForm__error-input {
-    min-height: 36px;
+  .signForm__error-input {
+    /* min-height: 36px; */
   }
 }
 
-.SignForm__submit-button {
+.signForm__submit-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -122,19 +118,19 @@
 }
 
 @media screen and (max-width: 320px) {
-  .SignForm__submit-button {
+  .signForm__submit-button {
     margin: 160px auto 14px;
     font-size: 12px;
     line-height: 15px;
   }
 }
 
-.SignForm__link-container {
+.signForm__link-container {
   display: flex;
   justify-content: center;
 }
 
-.SignForm__caption-link {
+.signForm__caption-link {
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
@@ -142,13 +138,13 @@
 }
 
 @media screen and (max-width: 320px) {
-  .SignForm__caption-link {
+  .signForm__caption-link {
     font-size: 12px;
     line-height: 15px;
   }
 }
 
-.SignForm__link {
+.signForm__link {
   font-size: 14px;
   line-height: 17px;
   margin-left: 6px;
@@ -157,7 +153,7 @@
 }
 
 @media screen and (max-width: 320px) {
-  .SignForm__link {
+  .signForm__link {
     font-size: 12px;
     line-height: 15px;
   }

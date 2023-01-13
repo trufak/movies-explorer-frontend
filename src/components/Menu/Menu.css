@@ -1,21 +1,22 @@
 @media screen and (min-width: 769px) {
-  .Menu_only-mobile {
+  .menu_only-mobile {
     display: none;
   }
 }
 
-.Menu__cover {
+.menu__cover {
   grid-area: menu;
+  z-index: 9999;
 }
 
 @media screen and (max-width: 768px) {
-  .Menu__cover_hidden {
+  .menu__cover_hidden {
     visibility: hidden;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .Menu__cover {
+  .menu__cover {
     position: fixed;
     top: 0;
     right: 0;
@@ -27,14 +28,14 @@
   }
 }
 
-.Menu__container {
+.menu__container {
   display: grid;
   grid-template-columns: 1fr 200px;
   grid-template-rows: auto;
 }
 
 @media screen and (max-width: 768px) {
-  .Menu__container {
+  .menu__container {
     grid-template-columns: 1fr;
     grid-template-rows: max-content auto 1fr;
     justify-items: center;
@@ -45,33 +46,34 @@
 }
 
 @media screen and (max-width: 320px) {
-  .Menu__container {
+  .menu__container {
     width: 100%;
   }
 }
 
-.Menu__close-button {
+.menu__close-button {
   margin: 23px 23px 0 0;
   justify-self: end;
 }
 
 @media screen and (max-width: 320px) {
-  .Menu__close-button {
+  .menu__close-button {
     margin: 14px 14px 0 0;
   }
 }
 
-.Menu__profile {
+.menu__profile {
   width: 100px;
   display: flex;
   align-items: center;
   justify-self: end;
   justify-content: space-between;
   font-size: 14px;
+  font-weight: 500;
 }
 
 @media screen and (max-width: 768px) {
-  .Menu__profile {
+  .menu__profile {
     align-self: end;
     justify-self: center;
     margin-bottom: 92px;
@@ -79,12 +81,12 @@
 }
 
 @media screen and (max-width: 320px) {
-  .Menu__profile {
+  .menu__profile {
     margin-bottom: 48px;
   }
 }
 
-.Menu__profile-icon {
+.menu__profile-icon {
   display: inline-block;
   width: 30px;
   height: 30px;

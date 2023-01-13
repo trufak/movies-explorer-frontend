@@ -1,26 +1,26 @@
-.Techs {
+.techs {
   padding: 100px 70px;
   background-color: #272727;
 }
 
 @media screen and (max-width: 768px) {
-  .Techs {
+  .techs {
     padding: 90px 50px;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .Techs {
+  .techs {
     padding: 70px 18px;
   }
 }
 
-.Techs__subtitle {
+.techs__subtitle {
   margin: 90px auto 26px;
 }
 
 @media screen and (max-width: 768px) {
-  .Techs__subtitle {
+  .techs__subtitle {
     margin: 80px auto 22px;
     font-size: 50px;
     line-height: 58px;
@@ -28,7 +28,7 @@
 }
 
 @media screen and (max-width: 320px) {
-  .Techs__subtitle {
+  .techs__subtitle {
     margin: 60px auto 24px;
     font-size: 30px;
     line-height: 36px;
@@ -36,7 +36,7 @@
   }
 }
 
-.Techs__text {
+.techs__text {
   margin: 0 auto 100px;
   max-width: 460px;
   width: 60%;
@@ -45,19 +45,19 @@
 }
 
 @media screen and (max-width: 768px) {
-  .Techs__text {
+  .techs__text {
     margin: 0 auto 83px;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .Techs__text {
+  .techs__text {
     width: 100%;
     margin: 0 auto 50px;
   }
 }
 
-.Techs__technics {
+.techs__technics {
   list-style: none;
   padding: 0;
   margin: 0 auto;
@@ -71,34 +71,34 @@
 }
 
 @media screen and (max-width: 768px) {
-  .Techs__technics {
+  .techs__technics {
     grid-template-columns: repeat(7, 84px);
     grid-template-rows: 57px;
   }
 }
 
 @media screen and (max-width: 700px) {
-  .Techs__technics {
+  .techs__technics {
     grid-template-columns: repeat(4, 84px);
     grid-template-rows: repeat(2, 57px);
   }
 }
 
 @media screen and (max-width: 400px) {
-  .Techs__technics {
+  .techs__technics {
     grid-template-columns: repeat(3, 84px);
     grid-template-rows: repeat(3, 57px);
   }
 }
 
 @media screen and (max-width: 320px) {
-  .Techs__technics {
+  .techs__technics {
     grid-template-columns: repeat(2, 84px);
     grid-template-rows: repeat(4, 57px);
   }
 }
 
-.Techs__technic {
+.techs__technic {
   width: 100%;
   height: 100%;
   background-color: #303030;

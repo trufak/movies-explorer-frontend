@@ -10,10 +10,12 @@ const Main = ({ loggedIn }) => {
   return (
     <div>
       <Header loggedIn={loggedIn} />
-      <Promo />
-      <AboutProject />
-      <Techs />
-      <Portfolio />
+      <main>
+        <Promo />
+        <AboutProject />
+        <Techs />
+        <Portfolio />
+      </main>
       <Footer />
     </div>
   );

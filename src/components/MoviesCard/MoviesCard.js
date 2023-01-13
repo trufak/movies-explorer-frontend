@@ -1,31 +1,28 @@
 import './MoviesCard.css';
 import { useState } from 'react';
 
-const MoviesCard = ({ movie, isSavedClass, unsavedLock }) => {
+const MoviesCard = ({ movie, isSavedClass }) => {
 
-  const [isSaved, setIsSaved] = useState(false);
+  const [isSaved, setIsSaved] = useState(movie.isSaved);
 
   const handleClickSaved = () => {
     if (!isSaved) setIsSaved(true);
-    else {
-      if (!unsavedLock) setIsSaved(false);
-    }
   };
 
   return (
-    <div className='MoviesCard'>
-      <div className='MoviesCard__about'>
-        <span className='MoviesCard__name'>{movie.name}</span>
-        <span className='MoviesCard__time'>{`${movie.duration} минут`}</span>
+    <div className='moviesCard'>
+      <div className='moviesCard__about'>
+        <span className='moviesCard__name'>{movie.name}</span>
+        <span className='moviesCard__time'>{`${movie.duration} минут`}</span>
       </div>
       <img
-        className='MoviesCard__mask'
+        className='moviesCard__mask'
         src={movie.image}
         alt={movie.name}
       />
       <button
         className={`
-          MoviesCard__save-button
+          moviesCard__save-button
           ${isSaved ? isSavedClass : ''}`}
         type='button'
         onClick={handleClickSaved}

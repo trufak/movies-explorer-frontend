@@ -18,22 +18,24 @@ function App() {
   });
 
   return (
-    <div className="App">
-      <Routes>
-        <Route path='/' element={ <Main loggedIn={loggedIn} /> } />
-        <Route path='/movies' element={ <Movies loggedIn={loggedIn}/> } />
-        <Route path='/saved-movies' element={ <SavedMovies loggedIn={loggedIn}/> } />
-        <Route path='/profile' element={
-          <Profile
-            loggedIn={loggedIn}
-            user={user}
+    <div className="app">
+      <div className='app__content'>
+        <Routes>
+          <Route path='/' element={ <Main loggedIn={loggedIn} /> } />
+          <Route path='/movies' element={ <Movies loggedIn={loggedIn}/> } />
+          <Route path='/saved-movies' element={ <SavedMovies loggedIn={loggedIn}/> } />
+          <Route path='/profile' element={
+            <Profile
+              loggedIn={loggedIn}
+              user={user}
+            />
+          }
           />
-        }
-        />
-        <Route path='/signin' element={ <Login /> } />
-        <Route path='/signup' element={ <Register /> } />
-        <Route path='*' element={ <NotFoundPage /> } />
-      </Routes>
+          <Route path='/signin' element={ <Login /> } />
+          <Route path='/signup' element={ <Register /> } />
+          <Route path='*' element={ <NotFoundPage /> } />
+        </Routes>
+      </div>
     </div>
   );
 }

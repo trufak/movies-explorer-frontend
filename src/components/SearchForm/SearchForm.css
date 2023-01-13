@@ -1,21 +1,21 @@
-.SearchForm {
+.searchForm {
   padding: 70px 70px 47px;
   display: grid;
 }
 
 @media screen and (max-width: 768px) {
-  .SearchForm {
+  .searchForm {
     padding: 80px 30px 60px;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .SearchForm {
+  .searchForm {
     padding: 84px 14px 50px;
   }
 }
 
-.SearchForm__search-row {
+.searchForm__search-row {
   width: 100%;
   padding-bottom: 13px;
   border-bottom: 1px solid #424242;
@@ -24,12 +24,12 @@
 }
 
 @media screen and (max-width: 320px) {
-  .SearchForm__search-row {
+  .searchForm__search-row {
     padding-bottom: 9px;
   }
 }
 
-.SearchForm__search-button {
+.searchForm__search-button {
   width: 34px;
   height: 34px;
   background-color: #4285F4;
@@ -42,7 +42,7 @@
   border: none;
 }
 
-.SearchForm__input {
+.searchForm__input {
   background-color: transparent;
   border: none;
   font-weight: 500;
@@ -55,13 +55,13 @@
 }
 
 @media screen and (max-width: 320px) {
-  .SearchForm__input {
+  .searchForm__input {
     font-size: 18px;
     line-height: 22px;
   }
 }
 
-.SearchForm__chortfilm {
+.searchForm__chortfilm {
   display: flex;
   margin-top: 32px;
   font-weight: 400;
@@ -70,14 +70,14 @@
 }
 
 @media screen and (max-width: 768px) {
-  .SearchForm__chortfilm {
+  .searchForm__chortfilm {
     justify-content: flex-end;
     margin-top: 29px;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .SearchForm__chortfilm {
+  .searchForm__chortfilm {
     justify-content: center;
     margin-top: 40px;
     font-size: 11px;
@@ -85,13 +85,13 @@
   }
 }
 
-.SearchForm__chortfilm-content {
+.searchForm__chortfilm-content {
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: auto;
 }
 
-.SearchForm__chortfilm-button {
+.searchForm__chortfilm-button {
   grid-column: 1;
   grid-row: 1;
   -webkit-appearance: none;
@@ -110,18 +110,18 @@
 }
 
 @media screen and (max-width: 768px) {
-  .SearchForm__chortfilm-button {
+  .searchForm__chortfilm-button {
     grid-column: 2;
     margin: 0 0 0 14px;
   }
 }
 
-.SearchForm__chortfilm-button_true {
+.searchForm__chortfilm-button_true {
   background: #3DDC84;
   justify-content: flex-end;
 }
 
-.SearchForm__chortfilm-circle {
+.searchForm__chortfilm-circle {
   width: 8px;
   height: 8px;
   background-color: #FFFF;

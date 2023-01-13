@@ -1,22 +1,25 @@
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 
-const MoviesCardList = ({ movies, isSavedClass, unsavedLock = false }) => {
+const MoviesCardList = ({ movies, isSavedClass, isMoreButton}) => {
   return (
-    <div className='MoviesCardList'>
-      <ul className='MoviesCardList__container'>
+    <div className='moviesCardList'>
+      <ul className='moviesCardList__container'>
       {
         movies.map((movie)=>
           <MoviesCard
             key={movie._id}
             movie={movie}
             isSavedClass={isSavedClass}
-            unsavedLock={unsavedLock}
           />
         )
       }
       </ul>
-      <button className='MoviesCardList__button'>Ещё</button>
+      {
+        isMoreButton &&
+          <button className='moviesCardList__button'>Ещё</button>
+      }
+
     </div>
   )
 }

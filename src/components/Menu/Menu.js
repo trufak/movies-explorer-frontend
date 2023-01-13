@@ -5,7 +5,7 @@ import './Menu.css';
 const Menu = ({ isOpenMobileMenu, closeMobileMenu }) => {
 
   const handleClickCover = (e) => {
-    if (e.target.classList.contains('Menu__cover')) {
+    if (e.target.classList.contains('menu__cover')) {
       closeMobileMenu();
     };
   }
@@ -13,20 +13,20 @@ const Menu = ({ isOpenMobileMenu, closeMobileMenu }) => {
   return (
     <div
       className={`
-        Menu__cover
-        ${!isOpenMobileMenu ? "Menu__cover_hidden" : ""}`}
+        menu__cover
+        ${!isOpenMobileMenu ? "menu__cover_hidden" : ""}`}
         onClick={handleClickCover}
     >
-      <div className="Menu__container">
+      <div className="menu__container">
         <button
-          className="close-button Menu__close-button Menu_only-mobile"
+          className="button close-button menu__close-button menu_only-mobile"
           type="button"
           onClick={closeMobileMenu}
         />
         <Navigation />
-        <Link className="link Menu__profile" to="/profile">
+        <Link className="link menu__profile" to="/profile">
           Аккаунт
-          <div className="Menu__profile-icon" />
+          <div className="menu__profile-icon" />
         </Link>
       </div>
     </div>

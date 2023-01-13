@@ -24,57 +24,59 @@ const Profile = ({loggedIn, user, updateUser}) => {
   return (
     <div>
       <Header loggedIn={loggedIn} />
-      <div className='Profile'>
-        <h1 className='Profile__title'>
+      <main className='profile'>
+        <h1 className='profile__title'>
           {`Привет, ${user.name}!`}
         </h1>
-        <form className='Profile__form'>
-          <ul className='Profile__inputs'>
-            <li className='Profile__input-container'>
+        <form className='profile__form'>
+          <ul className='profile__inputs'>
+            <li className='profile__input-container'>
               <label
-                className='Profile__label'
-                for='name'
+                className='profile__label'
+                htmlFor='name'
               >
                 Имя
               </label>
               <input
-                className='Profile__input'
+                className='profile__input'
                 type='text'
                 id='name'
-                value={values.name}
+                name='name'
+                value={values.name || ''}
                 onChange={handleChange}
               />
             </li>
-            <li className='Profile__input-container'>
+            <li className='profile__input-container'>
               <label
-                className='Profile__label'
-                for='email'
+                className='profile__label'
+                htmlFor='email'
               >
                 E-mail
               </label>
               <input
-                className='Profile__input'
-                type='text'
+                className='profile__input'
+                type='email'
                 id='email'
-                value={values.email}
+                name='email'
+                value={values.email || ''}
                 onChange={handleChange}
               />
             </li>
           </ul>
           <button
             type='submit'
-            className='Profile__submit-button'
+            className='button profile__submit-button'
           >
             Редактировать
           </button>
         </form>
         <button
           type='button'
-          className='Profile__exit-button'
+          className='button profile__exit-button'
         >
           Выйти из аккаунта
         </button>
-      </div>
+      </main>
     </div>
 
   )

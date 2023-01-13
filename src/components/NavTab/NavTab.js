@@ -3,22 +3,22 @@ import './NavTab.css';
 
 const NavTab = () => {
   return (
-    <nav className='NavTab'>
-      <ul className='NavTab__links'>
-        <li className='NavTab__link-container'>
-          <Link className='link NavTab__link' to='#about'>
+    <nav className='navTab'>
+      <ul className='navTab__links'>
+        <li className='navTab__link-container'>
+          <a className='link navTab__link' href='#about'>
             О проекте
-          </Link>
+          </a>
         </li>
-        <li className='NavTab__link-container'>
-          <Link className='link NavTab__link' to='#techs'>
+        <li className='navTab__link-container'>
+          <a className='link navTab__link' href='#techs'>
             Технологии
-          </Link>
+          </a>
         </li>
-        <li className='NavTab__link-container'>
-          <Link className='link NavTab__link' to='#profile'>
+        <li className='navTab__link-container'>
+          <a className='link navTab__link' href='#profile'>
             Студент
-          </Link>
+          </a>
         </li>
       </ul>
     </nav>

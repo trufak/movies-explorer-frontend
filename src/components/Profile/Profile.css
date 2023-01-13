@@ -1,22 +1,22 @@
-.Profile {
+.profile {
   padding: 70px 0;
   display: grid;
   justify-content: center;
 }
 
 @media screen and (max-width: 768px) {
-  .Profile {
+  .profile {
     padding: 236px 0 270px;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .Profile {
+  .profile {
     padding: 70px 0 40px;
   }
 }
 
-.Profile__title {
+.profile__title {
   margin: 0 auto;
   text-align: center;
   font-weight: 500;
@@ -24,25 +24,25 @@
   line-height: 29px;
 }
 
-.Profile__form {
+.profile__form {
   margin-top: 125px;
   display: grid;
   justify-content: center;
 }
 
 @media screen and (max-width: 768px) {
-  .Profile__form {
+  .profile__form {
     margin-top: 96px;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .Profile__form {
+  .profile__form {
     margin-top: 80px;
   }
 }
 
-.Profile__inputs {
+.profile__inputs {
   list-style: none;
   padding: 0;
   margin: 0 auto;
@@ -50,12 +50,12 @@
 }
 
 @media screen and (max-width: 450px) {
-  .Profile__inputs {
+  .profile__inputs {
     width: 260px;
   }
 }
 
-.Profile__input-container {
+.profile__input-container {
   display: flex;
   justify-content: space-between;
   padding-bottom: 16px;
@@ -63,18 +63,18 @@
   margin-bottom: 16px;
 }
 
-.Profile__input-container:last-child {
+.profile__input-container:last-child {
   border: none;
   margin: 0;
 }
 
-.Profile__label {
+.profile__label {
   font-weight: 500;
   font-size: 11px;
   line-height: 13px;
 }
 
-.Profile__input {
+.profile__input {
   border: none;
   background-color: transparent;
   outline: 0;
@@ -85,7 +85,7 @@
   text-align: end;
 }
 
-.Profile__submit-button {
+.profile__submit-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -101,18 +101,18 @@
 }
 
 @media screen and (max-width: 768px) {
-  .Profile__submit-button {
+  .profile__submit-button {
     margin-top: 192px;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .Profile__submit-button {
+  .profile__submit-button {
     margin-top: 360px;
   }
 }
 
-.Profile__exit-button {
+.profile__exit-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
