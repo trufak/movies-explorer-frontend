@@ -31,14 +31,12 @@ const Header = ({ loggedIn }) => {
             >
               Регистрация
             </Link>
-            <div className='header__signin'>
-              <Link
-                className='link header__sign-link header__signin-link'
-                to='/signin'
-              >
-                Войти
-              </Link>
-            </div>
+            <Link
+              className='link header__sign-link header__signin-link'
+              to='/signin'
+            >
+              Войти
+            </Link>
           </div>
       }
       {loggedIn && <button

@@ -36,7 +36,7 @@ const Portfolio = () => {
         <li className='portfolio__site-container'>
           <a
             className='link portfolio__site-link'
-            href='/'
+            href='https://practicum.yandex.ru/'
             target='_blank'
             rel='noreferrer'
           >
@@ -49,24 +49,34 @@ const Portfolio = () => {
           </a>
         </li>
         <li className='portfolio__site-container'>
-          <Link className='link portfolio__site-link' to='/'>
+          <a
+            className='link portfolio__site-link'
+            href='https://practicum.yandex.ru/'
+            target='_blank'
+            rel='noreferrer'
+          >
             <p className='portfolio__site'>Адаптивный сайт</p>
             <img
               className='portfolio__site-arrow'
               src={arrow}
               alt='Перейти'
             />
-          </Link>
+          </a>
         </li>
         <li className='portfolio__site-container'>
-          <Link className='link portfolio__site-link' to='/'>
+          <a
+            className='link portfolio__site-link'
+            href='https://practicum.yandex.ru/'
+            target='_blank'
+            rel='noreferrer'
+          >
             <p className='portfolio__site'>Одностраничное приложение</p>
             <img
               className='portfolio__site-arrow'
               src={arrow}
               alt='Перейти'
             />
-          </Link>
+          </a>
         </li>
       </ul>
     </section>
