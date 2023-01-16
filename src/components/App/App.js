@@ -8,6 +8,7 @@ import Profile from '../Profile/Profile';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 function App() {
 
@@ -22,15 +23,24 @@ function App() {
       <div className='app__content'>
         <Routes>
           <Route path='/' element={ <Main loggedIn={loggedIn} /> } />
-          <Route path='/movies' element={ <Movies loggedIn={loggedIn}/> } />
-          <Route path='/saved-movies' element={ <SavedMovies loggedIn={loggedIn}/> } />
-          <Route path='/profile' element={
-            <Profile
-              loggedIn={loggedIn}
-              user={user}
+          <Route element={ <ProtectedRoute loggedIn={loggedIn} /> } >
+            <Route
+              path='/movies'
+              element={ <Movies loggedIn={loggedIn}/> }
             />
-          }
-          />
+          </Route>
+          <Route element={ <ProtectedRoute loggedIn={loggedIn} /> } >
+            <Route
+              path='/saved-movies'
+              element={ <SavedMovies loggedIn={loggedIn}/> }
+            />
+          </Route>
+          <Route element={ <ProtectedRoute loggedIn={loggedIn} /> } >
+            <Route
+              path='/profile'
+              element={ <Profile loggedIn={loggedIn} user={user} /> }
+            />
+          </Route>
           <Route path='/signin' element={ <Login /> } />
           <Route path='/signup' element={ <Register /> } />
           <Route path='*' element={ <NotFoundPage /> } />
