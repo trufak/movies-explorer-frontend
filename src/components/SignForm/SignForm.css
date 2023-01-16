@@ -81,7 +81,7 @@
 }
 
 .signForm__input:focus {
-  box-shadow: 0px 0px 3px rgba(355,355,355,0.1);
+  outline: rgba(355,355,355,0.1) solid 2px;
 }
 
 .signForm__error-input {
@@ -90,13 +90,6 @@
   line-height: 12px;
   color: #EE3465;
   min-height: 10px;
-  /* min-height: 24px; */
-}
-
-@media screen and (max-width: 320px) {
-  .signForm__error-input {
-    /* min-height: 36px; */
-  }
 }
 
 .signForm__submit-button {

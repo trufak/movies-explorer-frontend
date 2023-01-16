@@ -30,6 +30,7 @@ const SignForm = ({
                     type={input.type}
                     name={input.name}
                     value={values[input.name] || ""}
+                    placeholder={input.name}
                     onChange={handleChange}
                   />
                   <span className='signForm__error-input'>
