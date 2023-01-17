@@ -1,0 +1,52 @@
+.app {
+  background-color: #202020;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Inter', Courier, monospace, sans-serif;
+  color: #FFFF;
+  position: relative;
+}
+
+.app__content {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.link {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #FFFF;
+}
+
+.link:hover {
+  opacity: 0.8;
+}
+
+.link_active {
+  font-weight: 500;
+}
+
+.button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.close-button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: transparent;
+  background-image: url(../../images/close_button.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #FFFFFF;
+}

@@ -1,0 +1,129 @@
+.aboutProject {
+  padding: 110px 70px;
+}
+
+@media screen and (max-width: 768px) {
+  .aboutProject {
+    padding: 90px 50px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .aboutProject {
+    padding: 70px 18px;
+  }
+}
+
+.aboutProject__table {
+  list-style: none;
+  padding: 0;
+  margin: 70px 0 110px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  column-gap: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .aboutProject__table {
+    column-gap: 30px;
+    margin-bottom: 93px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .aboutProject__table {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, auto);
+    margin: 60px 0;
+    row-gap: 56px;
+  }
+}
+
+.aboutProject__table-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, auto);
+  row-gap: 26px;
+}
+
+@media screen and (max-width: 768px) {
+  .aboutProject__table-item {
+    row-gap: 22px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .aboutProject__table-item {
+    row-gap: 16px;
+  }
+}
+
+.aboutProject__column-title {
+  margin: 0;
+  grid-row: 1;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+}
+
+@media screen and (max-width: 320px) {
+  .aboutProject__column-title {
+    grid-row: auto;
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+.aboutProject__time-line {
+  display: grid;
+  grid-template-columns: 228px 1fr;
+  grid-template-rows: 36px auto;
+  font-size: 14px;
+  line-height: 17px;
+  align-items: center;
+  justify-items: center;
+  row-gap: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  .aboutProject__time-line {
+    grid-template-columns: 140px 1fr;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .aboutProject__time-line {
+    grid-template-columns: 100px 1fr;
+    font-size: 11px;
+    line-height: 13px;
+    row-gap: 10px;
+  }
+}
+
+.aboutProject__time-backend {
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #3DDC84;
+  color: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aboutProject__time-frontend {
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #303030;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aboutProject__time-desc {
+  color: #A0A0A0;
+  margin: 0;
+}

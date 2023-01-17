@@ -1,0 +1,153 @@
+.signForm {
+  width: 396px;
+  margin: 0 auto;
+  padding: 70px 0;
+  display: grid;
+}
+
+@media screen and (max-width: 768px) {
+  .signForm {
+    padding: 232px 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .signForm {
+    width: 260px;
+    padding: 56px 0 30px;
+    justify-items: center;
+  }
+}
+
+.signForm__title {
+  margin: 40px 0 0;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+@media screen and (max-width: 320px) {
+  .signForm__title {
+    margin-top: 50px;
+  }
+}
+
+.signForm__form {
+  margin-top: 40px;
+  width: 100%;
+}
+
+@media screen and (max-width: 320px) {
+  .signForm__form {
+    margin-top: 80px;
+  }
+}
+
+.signForm__inputs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+.signForm__input-container {
+  display: grid;
+  row-gap: 10px;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+}
+
+.signForm__label {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #8B8B8B;
+}
+
+.signForm__input {
+  background: #2F2F2F;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #FFFFFF;
+  padding: 15px;
+}
+
+.signForm__input:focus {
+  outline: rgba(355,355,355,0.1) solid 2px;
+}
+
+.signForm__error-input {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #EE3465;
+  min-height: 10px;
+}
+
+.signForm__submit-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  width: 100%;
+  padding: 13px 0 15px;
+  margin: 70px auto 16px;
+  background: #4285F4;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 320px) {
+  .signForm__submit-button {
+    margin: 160px auto 14px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
+.signForm__link-container {
+  display: flex;
+  justify-content: center;
+}
+
+.signForm__caption-link {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #8B8B8B;
+}
+
+@media screen and (max-width: 320px) {
+  .signForm__caption-link {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
+.signForm__link {
+  font-size: 14px;
+  line-height: 17px;
+  margin-left: 6px;
+  color: #4285F4;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 320px) {
+  .signForm__link {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
