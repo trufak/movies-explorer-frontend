@@ -42,6 +42,7 @@ const Profile = ({loggedIn, user, updateUser}) => {
                 type='text'
                 id='name'
                 name='name'
+                placeholder='Имя'
                 value={values.name || ''}
                 onChange={handleChange}
               />
@@ -58,6 +59,7 @@ const Profile = ({loggedIn, user, updateUser}) => {
                 type='email'
                 id='email'
                 name='email'
+                placeholder='E-mail'
                 value={values.email || ''}
                 onChange={handleChange}
               />

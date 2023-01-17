@@ -56,7 +56,9 @@
 }
 
 .profile__input-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: auto;
   justify-content: space-between;
   padding-bottom: 16px;
   border-bottom: 1px solid #424242;
@@ -72,17 +74,24 @@
   font-weight: 500;
   font-size: 11px;
   line-height: 13px;
+  margin-right: 10px;
 }
 
 .profile__input {
   border: none;
   background-color: transparent;
-  outline: 0;
+  outline: none;
   color: #ffff;
   font-weight: 400;
   font-size: 11px;
   line-height: 13px;
   text-align: end;
+  width: 100%;
+  border-radius: 2px;
+}
+
+.profile__input:focus {
+  outline: rgba(355,355,355,0.1) solid 1px;;
 }
 
 .profile__submit-button {
