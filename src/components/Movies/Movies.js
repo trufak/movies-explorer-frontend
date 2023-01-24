@@ -6,6 +6,8 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
 import moviesApi from '../../utils/MoviesApi';
 import Preloader from '../Preloader/Preloader';
+import { filterMovies } from '../../utils/filterMovies';
+
 
 const Movies = ({ loggedIn }) => {
 
@@ -50,11 +52,11 @@ const Movies = ({ loggedIn }) => {
   /* Фильтрация фильмов */
   const filterLocalMovies = () => {
     setResultContent((<Preloader />));
-    const regexp = new RegExp(localDataMovies.findText, 'i');
-    const fMovies = localDataMovies.allMovies.filter((movie)=>
-      (regexp.test(movie.nameRU) | regexp.test(movie.nameEN))
-      && checkIsChortMovie(movie)
-    );
+    const fMovies = filterMovies(
+      localDataMovies.allMovies,
+      localDataMovies.findText,
+      localDataMovies.isChortMovies,
+    )
     if (fMovies.length > 0) {
       setFindMovies(fMovies);
     } else {
@@ -62,13 +64,6 @@ const Movies = ({ loggedIn }) => {
         <h1 className='movies__result-text'>Ничего не найдено</h1>
       ));
     }
-  };
-
-  const checkIsChortMovie = (movie) => {
-    if (localDataMovies.isChortMovies) {
-      return movie.duration<=40;
-    }
-    return true;
   };
 
   /* Отображение фильмов при изменении массива отфильтрованных фильмов */
