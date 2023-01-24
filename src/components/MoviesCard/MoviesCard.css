@@ -18,8 +18,10 @@
 
 .moviesCard__about {
   padding: 0 18px;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  grid-template-rows: 1fr;
+  column-gap: 10px;
 }
 
 @media screen and (max-width: 320px) {
@@ -32,6 +34,11 @@
   font-weight: 500;
   font-size: 15px;
   line-height: 18px;
+  justify-self: start;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
 }
 
 @media screen and (max-width: 320px) {
@@ -46,6 +53,7 @@
   font-size: 13px;
   line-height: 18px;
   color: #8B8B8B;
+  justify-self: end;
 }
 
 @media screen and (max-width: 320px) {

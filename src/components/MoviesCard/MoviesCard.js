@@ -1,7 +1,7 @@
 import './MoviesCard.css';
 import { useState } from 'react';
 
-const MoviesCard = ({ movie, isSavedClass }) => {
+const MoviesCard = ({ movie, isSavedClass, baseUrlImage }) => {
 
   const [isSaved, setIsSaved] = useState(movie.isSaved);
 
@@ -12,13 +12,13 @@ const MoviesCard = ({ movie, isSavedClass }) => {
   return (
     <div className='moviesCard'>
       <div className='moviesCard__about'>
-        <span className='moviesCard__name'>{movie.name}</span>
+        <span className='moviesCard__name'>{movie.nameRU}</span>
         <span className='moviesCard__time'>{`${movie.duration} минут`}</span>
       </div>
       <img
         className='moviesCard__mask'
-        src={movie.image}
-        alt={movie.name}
+        src={`${baseUrlImage}${movie.image.url}`}
+        alt={movie.image.name}
       />
       <button
         className={`
