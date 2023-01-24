@@ -1,24 +1,20 @@
 import './SavedMovies.css';
 import { useState } from 'react';
 import Header from '../Header/Header';
-import SearchForm from '../SearchForm/SearchForm';
-import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import savedMoviesData from '../../utils/savedMoviesData';
 import Footer from '../Footer/Footer';
+import FilteredMovies from '../FilteredMovies/FilteredMovies';
 
 const SavedMovies = ({loggedIn}) => {
 
-  const [savedMovies, setSavedMovies] = useState(savedMoviesData);
+  /* const [savedMovies, setSavedMovies] = useState(savedMoviesData); */
 
   return (
     <div>
       <Header loggedIn={loggedIn} />
       <main>
-        <SearchForm />
-        <MoviesCardList
-          movies={savedMovies}
-          isSavedClass='moviesCard__save-button_delete'
-        />
+        <FilteredMovies
+          noValidationSearchRow = {true}
+          />
       </main>
       <Footer />
     </div>

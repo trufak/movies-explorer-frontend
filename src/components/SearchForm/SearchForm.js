@@ -45,7 +45,8 @@ const SearchForm = ({
             searchForm__search-button
             ${!isValid ? 'searchForm__search-button_disabled' : ''}
           `}
-          type='submit' />
+          type='submit'
+          disabled={!isValid}/>
       </div>
       <p className = 'searchForm__error-input'>
         {!isValid
