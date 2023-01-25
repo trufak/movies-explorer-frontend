@@ -9,29 +9,42 @@ const SignForm = ({
   textButton,
   captionAfterLink,
   linkText,
-  pathLink
+  pathLink,
+  onSubmit,
+  apiError
 }) => {
 
   const {values, handleChange, errors, isValid, resetForm, setValues, setIsValid} = useFormAndValidation();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onSubmit(values);
+  }
+
 
   return (
     <main className='signForm'>
       <Logo />
       <h1 className='signForm__title'>{title}</h1>
-      <form className='signForm__form'>
+      <form
+        className='signForm__form'
+        onSubmit={handleSubmit}
+      >
         <ul className='signForm__inputs'>
           {
             inputs.map((input, index)=>{
               return (
                 <li className='signForm__input-container' key={index}>
-                  <label className='signForm__label'>{input.name}</label>
+                  <label className='signForm__label'>{input.label}</label>
                   <input
                     className='signForm__input'
                     type={input.type}
                     name={input.name}
                     value={values[input.name] || ""}
-                    placeholder={input.name}
+                    placeholder={input.label}
                     onChange={handleChange}
+                    required={input.required}
+                    pattern={input.pattern}
                   />
                   <span className='signForm__error-input'>
                     {errors[input.name]}
@@ -41,9 +54,16 @@ const SignForm = ({
             })
           }
         </ul>
+        <p className='signForm__apiError'>
+          {apiError ? 'Что-то пошло не так...Попробуйте ещё раз!' : ''}
+        </p>
         <button
-          className='signForm__submit-button'
+          className={`
+            signForm__submit-button
+            ${!isValid ? 'signForm__submit-button_disabled' : ''}
+          `}
           type='submit'
+          disabled={!isValid}
         >
           {textButton}
         </button>

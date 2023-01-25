@@ -1,23 +1,42 @@
+import { useState } from "react";
 import SignForm from "../SignForm/SignForm";
+import mainApi from "../../utils/MainApi";
 
-const Login = () => {
+const Login = ({ onLogin }) => {
+
+  const [apiError, setApiError] = useState(false);
+
+  const handleSubmit = (values) => {
+    setApiError(false);
+    onLogin(values)
+    .catch(()=>{
+      setApiError(true);
+    })
+  };
+
   return (
     <SignForm
     title='Рады видеть!'
     inputs={[
       {
-        name: 'E-mail',
+        name: 'email',
+        label: 'E-mail',
         type: 'email',
+        required: true,
       },
       {
-        name: 'Пароль',
+        name: 'password',
+        label: 'Пароль',
         type: 'password',
+        required: true,
       },
     ]}
     textButton='Войти'
     captionAfterLink='Еще не зарегистрированы?'
     linkText='Регистрация'
     pathLink='/signup'
+    onSubmit={handleSubmit}
+    apiError={apiError}
   />
   )
 };
