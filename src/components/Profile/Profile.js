@@ -1,11 +1,20 @@
 import './Profile.css';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '../Header/Header';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 
-const Profile = ({loggedIn, user, updateUser}) => {
+const Profile = ({
+  loggedIn,
+  user,
+  onUpdateUser,
+  onLogout,
+}) => {
 
   const {values, handleChange, errors, isValid, resetForm, setValues, setIsValid} = useFormAndValidation();
+  const [attentionText, setAttentionText] = useState({
+    text: '',
+    status: true,
+  });
 
   useEffect(() => {
     setValues({
@@ -15,11 +24,30 @@ const Profile = ({loggedIn, user, updateUser}) => {
   }, []);
 
   useEffect(() => {
-    setValues({
-      name: user.name,
-      email: user.email,
+    if(isValid) setAttentionText({ text: '', status: true });
+    else setAttentionText({
+      text: 'Введены некорректные данные!',
+      status: false
     });
-  }, [user]);
+  }, [isValid, values]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setAttentionText('');
+    onUpdateUser(values)
+    .then(()=>{
+      setAttentionText({
+        text:'Данные успешно обновлены!',
+        status: true,
+      });
+    })
+    .catch(()=>{
+      setAttentionText({
+        text: 'Что-то пошло не так...Попробуйте ещё раз!',
+        status: false,
+      });
+    })
+  };
 
   return (
     <div>
@@ -28,7 +56,10 @@ const Profile = ({loggedIn, user, updateUser}) => {
         <h1 className='profile__title'>
           {`Привет, ${user.name}!`}
         </h1>
-        <form className='profile__form'>
+        <form
+          className='profile__form'
+          onSubmit={handleSubmit}
+        >
           <ul className='profile__inputs'>
             <li className='profile__input-container'>
               <label
@@ -45,6 +76,8 @@ const Profile = ({loggedIn, user, updateUser}) => {
                 placeholder='Имя'
                 value={values.name || ''}
                 onChange={handleChange}
+                required
+                pattern='[a-zA-Zа-яА-Я\-\s]+'
               />
             </li>
             <li className='profile__input-container'>
@@ -65,9 +98,23 @@ const Profile = ({loggedIn, user, updateUser}) => {
               />
             </li>
           </ul>
+          <p className={`
+            profile__attentionText
+            ${attentionText.status ? '' : 'profile__attentionText_error'}`}
+          >
+            { attentionText.text }
+          </p>
           <button
             type='submit'
-            className='button profile__submit-button'
+            className={`
+              button
+              profile__submit-button
+              ${
+                !isValid || user.name === values.name
+                ? 'profile__submit-button_disabled'
+                : ''}
+            `}
+            disabled={!isValid}
           >
             Редактировать
           </button>
@@ -75,6 +122,7 @@ const Profile = ({loggedIn, user, updateUser}) => {
         <button
           type='button'
           className='button profile__exit-button'
+          onClick={onLogout}
         >
           Выйти из аккаунта
         </button>

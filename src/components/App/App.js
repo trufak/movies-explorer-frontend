@@ -1,5 +1,5 @@
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
@@ -18,6 +18,51 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const navigate = useNavigate();
 
+  useEffect(()=>{
+    const token = localStorage.getItem('tokenMovies');
+    if (token) {
+      mainApi.headers = {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json",
+      };
+      getCurrentUser()
+      .then(()=>{
+        setLoggedIn(true);
+        navigate('/movies');
+      })
+      .catch(err=>console.log(err));
+    }
+  },[]);
+
+  const getCurrentUser = () => {
+    return mainApi.getUser()
+    .then ((data)=>{
+      setCurrentUser({
+        ...currentUser,
+        ...data.data,
+      });
+      return data;
+    })
+  };
+
+  const updateCurrentUser = (user) => {
+    return mainApi.updateUser(user)
+    .then ((data)=>{
+      setCurrentUser({
+        ...currentUser,
+        ...data.data,
+      });
+      return data;
+    })
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('tokenMovies');
+    setLoggedIn(false);
+    setCurrentUser({});
+    navigate('/');
+  };
+
   const handleRegister = (values) => {
     return mainApi.signup(values)
     .then((user)=>{
@@ -32,10 +77,16 @@ function App() {
     return mainApi.signin(values)
     .then((data)=>{
       localStorage.setItem('tokenMovies', data.token);
-      setCurrentUser(values);
+      mainApi.headers = {
+        "Authorization": `Bearer ${data.token}`,
+        "Content-Type": "application/json",
+      }
       setLoggedIn(true);
+      return getCurrentUser();})
+    .then(()=>{
       navigate('/movies');
     })
+    .catch(err=>console.log(err));
   };
 
   return (
@@ -59,7 +110,13 @@ function App() {
             <Route element={ <ProtectedRoute loggedIn={loggedIn} /> } >
               <Route
                 path='/profile'
-                element={ <Profile loggedIn={loggedIn} user={currentUser} /> }
+                element={
+                  <Profile
+                    loggedIn={loggedIn}
+                    user={currentUser}
+                    onUpdateUser={updateCurrentUser}
+                    onLogout={handleLogout}
+                  /> }
               />
             </Route>
             <Route path='/signin' element={
