@@ -9,7 +9,12 @@ const FilteredMovies = ({
   onChangeIsChortMovie,
   onFindMovie,
   isSavedClass,
-  noValidationSearchRow
+  noValidationSearchRow,
+  onSaveMovie,
+  onUnSaveMovie,
+  savedMovies,
+  keyMovie,
+  onGetUrlImage,
 }) => {
 
   const [findValue, setFindValue] = useState('');
@@ -20,8 +25,8 @@ const FilteredMovies = ({
 
   useEffect(()=>{
     setInitialMoviesCount();
-    setFindValue(localStorage.getItem('findMoviesText'));
-  },[]);
+    setFindValue(localDataMovies.findText);
+  },[localDataMovies]);
 
   /* Определение начального количества карточек */
   const setInitialMoviesCount = () => {
@@ -92,7 +97,7 @@ const FilteredMovies = ({
       <SearchForm
         findValue = {findValue}
         onChangeFindValue = {handleChangeFindValue}
-        isValid = {findValue | noValidationSearchRow}
+        isValid = {findValue || noValidationSearchRow}
         onSubmit={handleFindMovie}
         isChortMovie = {localDataMovies.isChortMovies}
         onChangeIsChortMovie = {handleChangeIsChortMovie}
@@ -102,8 +107,12 @@ const FilteredMovies = ({
         movies={movies}
         findMovies={findMovies}
         isSavedClass={isSavedClass}
-        baseUrlImage={'https://api.nomoreparties.co'}
         handleAddFilms={handleAddFilms}
+        onSaveMovie={onSaveMovie}
+        onUnSaveMovie={onUnSaveMovie}
+        savedMovies={savedMovies}
+        keyMovie={keyMovie}
+        onGetUrlImage={onGetUrlImage}
       />
     </div>
   )

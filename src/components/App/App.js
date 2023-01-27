@@ -16,6 +16,8 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
+  const [savedMovies, setSavedMovies] = useState([]);
+
   const navigate = useNavigate();
 
   useEffect(()=>{
@@ -25,14 +27,19 @@ function App() {
         "Authorization": `Bearer ${token}`,
         "Content-Type": "application/json",
       };
-      getCurrentUser()
-      .then(()=>{
+      Promise.all([getCurrentUser(), mainApi.getMovies()])
+      .then(([currentUserInfo, sMovies])=>{
         setLoggedIn(true);
+        setSavedMovies(sMovies);
         navigate('/movies');
       })
       .catch(err=>console.log(err));
     }
   },[]);
+
+  useEffect(()=>{
+    localStorage.setItem('savedMovies', savedMovies);
+  },[savedMovies]);
 
   const getCurrentUser = () => {
     return mainApi.getUser()
@@ -89,6 +96,20 @@ function App() {
     .catch(err=>console.log(err));
   };
 
+  const handleSaveMovie = (movie) => {
+    return mainApi.saveMovie(movie)
+    .then((data)=>{
+      setSavedMovies([...savedMovies, data.data]);
+    });
+  };
+
+  const handleUnSaveMovie = (movieId) => {
+    return mainApi.unSaveMovie(movieId)
+    .then((data)=>{
+      setSavedMovies(savedMovies.filter((movie)=>movie._id!==data.data._id));
+    });
+  };
+
   return (
     <div className="app">
       <div className='app__content'>
@@ -98,13 +119,25 @@ function App() {
             <Route element={ <ProtectedRoute loggedIn={loggedIn} /> } >
               <Route
                 path='/movies'
-                element={ <Movies loggedIn={loggedIn}/> }
+                element={
+                  <Movies
+                    loggedIn={loggedIn}
+                    onSaveMovie={handleSaveMovie}
+                    onUnSaveMovie={handleUnSaveMovie}
+                    savedMovies={savedMovies}
+                  /> }
               />
             </Route>
             <Route element={ <ProtectedRoute loggedIn={loggedIn} /> } >
               <Route
                 path='/saved-movies'
-                element={ <SavedMovies loggedIn={loggedIn}/> }
+                element={
+                  <SavedMovies
+                    loggedIn={loggedIn}
+                    savedMovies={savedMovies}
+                    onUnSaveMovie={handleUnSaveMovie}
+                  />
+                }
               />
             </Route>
             <Route element={ <ProtectedRoute loggedIn={loggedIn} /> } >
@@ -113,7 +146,6 @@ function App() {
                 element={
                   <Profile
                     loggedIn={loggedIn}
-                    user={currentUser}
                     onUpdateUser={updateCurrentUser}
                     onLogout={handleLogout}
                   /> }

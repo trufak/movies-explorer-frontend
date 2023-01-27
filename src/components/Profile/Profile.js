@@ -1,11 +1,11 @@
 import './Profile.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Header from '../Header/Header';
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 const Profile = ({
   loggedIn,
-  user,
   onUpdateUser,
   onLogout,
 }) => {
@@ -15,6 +15,7 @@ const Profile = ({
     text: '',
     status: true,
   });
+  const user = useContext(CurrentUserContext);
 
   useEffect(() => {
     setValues({

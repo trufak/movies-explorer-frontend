@@ -5,8 +5,12 @@ const MoviesCardList = ({
   movies,
   isSavedClass,
   isMoreButton,
-  baseUrlImage,
-  addFilms
+  addFilms,
+  onSaveMovie,
+  onUnSaveMovie,
+  savedMovies,
+  keyMovie,
+  onGetUrlImage,
 }) => {
   return (
     <div className='moviesCardList'>
@@ -14,10 +18,13 @@ const MoviesCardList = ({
       {
         movies.map((movie)=>
           <MoviesCard
-            key={movie.id}
+            key={movie[keyMovie]}
             movie={movie}
             isSavedClass={isSavedClass}
-            baseUrlImage={baseUrlImage}
+            onSaveMovie={onSaveMovie}
+            onUnSaveMovie={onUnSaveMovie}
+            savedMovies={savedMovies}
+            onGetUrlImage={onGetUrlImage}
           />
         )
       }

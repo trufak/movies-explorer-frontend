@@ -5,7 +5,32 @@ class MainApi {
 
   /* Получить сохраненные фильмы */
   getMovies () {
-    return fetch(this.baseUrl + '/movies')
+    return fetch(this.baseUrl + '/movies',{
+      headers: this.headers,
+    })
+    .then((res) => {
+      if (res.ok) return res.json();
+      return Promise.reject(`Ошибка: ${res.status}`);
+    });
+  }
+  /* Сохранение фильма */
+  saveMovie (movie) {
+    return fetch(this.baseUrl + '/movies',{
+      method: 'POST',
+      headers: this.headers,
+      body: JSON.stringify(movie),
+    })
+    .then((res) => {
+      if (res.ok) return res.json();
+      return Promise.reject(`Ошибка: ${res.status}`);
+    });
+  }
+  /* Удаление фильма из сохраненных фильмов */
+  unSaveMovie (movieId) {
+    return fetch(`${this.baseUrl}/movies/${movieId}`,{
+      method: 'DELETE',
+      headers: this.headers,
+    })
     .then((res) => {
       if (res.ok) return res.json();
       return Promise.reject(`Ошибка: ${res.status}`);
@@ -57,6 +82,8 @@ class MainApi {
       return Promise.reject(`Ошибка: ${res.status}`);
     });
   }
+
+
 }
 
 const mainApi = new MainApi({

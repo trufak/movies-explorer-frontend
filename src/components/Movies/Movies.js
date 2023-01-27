@@ -5,7 +5,12 @@ import Footer from '../Footer/Footer';
 import moviesApi from '../../utils/MoviesApi';
 import FilteredMovies from '../FilteredMovies/FilteredMovies';
 
-const Movies = ({ loggedIn }) => {
+const Movies = ({
+  loggedIn,
+  onSaveMovie,
+  onUnSaveMovie,
+  savedMovies,
+}) => {
 
   const [localDataMovies, setLocalDataMovies] = useState({});
 
@@ -47,6 +52,10 @@ const Movies = ({ loggedIn }) => {
     });
   };
 
+  const handleGetUrlImage = (movie) => {
+    return `https://api.nomoreparties.co${movie.image.url}`;
+  };
+
   return (
     <div className='movies'>
       <Header loggedIn={loggedIn} />
@@ -56,6 +65,11 @@ const Movies = ({ loggedIn }) => {
           onChangeIsChortMovie={handleChangeIsChortMovie}
           onFindMovie={handleFindMovie}
           isSavedClass='moviesCard__save-button_isSaved'
+          onSaveMovie={onSaveMovie}
+          onUnSaveMovie={onUnSaveMovie}
+          savedMovies={savedMovies}
+          keyMovie='id'
+          onGetUrlImage={handleGetUrlImage}
         />
       </main>
       <Footer />

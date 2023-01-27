@@ -7,7 +7,11 @@ const MoviesResultContent = ({
   isSavedClass,
   findMovies,
   handleAddFilms,
-  baseUrlImage,
+  onSaveMovie,
+  onUnSaveMovie,
+  savedMovies,
+  keyMovie,
+  onGetUrlImage,
 }) => {
 
   const renderContent = () => {
@@ -16,8 +20,12 @@ const MoviesResultContent = ({
         movies={movies}
         isSavedClass={isSavedClass}
         isMoreButton={movies.length<findMovies.length}
-        baseUrlImage={baseUrlImage}
         addFilms={handleAddFilms}
+        onSaveMovie={onSaveMovie}
+        onUnSaveMovie={onUnSaveMovie}
+        savedMovies={savedMovies}
+        keyMovie={keyMovie}
+        onGetUrlImage={onGetUrlImage}
       /> )
     } else if (typeContent === 'preloader') {
       return  (<Preloader />)
