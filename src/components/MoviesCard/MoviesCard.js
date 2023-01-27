@@ -1,5 +1,6 @@
-import './MoviesCard.css';
-import { useState, useEffect } from 'react';
+/* eslint-disable jsx-a11y/anchor-has-content */
+import "./MoviesCard.css";
+import { useState, useEffect } from "react";
 
 const MoviesCard = ({
   movie,
@@ -9,29 +10,27 @@ const MoviesCard = ({
   savedMovies,
   onGetUrlImage,
 }) => {
-
   const [savedMovie, setSavedMovie] = useState(undefined);
-  const [urlImage, setUrlImage] = useState('');
+  const [urlImage, setUrlImage] = useState("");
 
-  useEffect(()=>{
+  useEffect(() => {
     setUrlImage(onGetUrlImage(movie));
-  },[]);
+  }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     checkIsSaved();
-  },[savedMovies]);
+  }, [savedMovies]);
 
   const checkIsSaved = () => {
     if (movie._id) {
       setSavedMovie(movie);
     } else {
-      setSavedMovie(savedMovies.find((sMovie)=>
-        sMovie.movieId===movie.id));
+      setSavedMovie(savedMovies.find((sMovie) => sMovie.movieId === movie.id));
     }
   };
 
   const handleClickSaved = () => {
-    if(!savedMovie) {
+    if (!savedMovie) {
       onSaveMovie({
         nameRU: movie.nameRU,
         nameEN: movie.nameEN,
@@ -42,36 +41,37 @@ const MoviesCard = ({
         description: movie.description,
         image: urlImage,
         trailerLink: movie.trailerLink,
-        thumbnail: 'https://api.nomoreparties.co' + movie.image.formats.thumbnail.url,
+        thumbnail:
+          "https://api.nomoreparties.co" + movie.image.formats.thumbnail.url,
         movieId: movie.id,
-      })
-      .catch((err)=>console.log(err));
+      }).catch((err) => console.log(err));
     } else {
-      onUnSaveMovie(savedMovie._id)
-      .catch((err)=>console.log(err));
+      onUnSaveMovie(savedMovie._id).catch((err) => console.log(err));
     }
   };
 
   return (
-    <div className='moviesCard'>
-      <div className='moviesCard__about'>
-        <span className='moviesCard__name'>{movie.nameRU}</span>
-        <span className='moviesCard__time'>{`${movie.duration} минут`}</span>
+    <div className="moviesCard">
+      <div className="moviesCard__about">
+        <span className="moviesCard__name">{movie.nameRU}</span>
+        <span className="moviesCard__time">{`${movie.duration} минут`}</span>
       </div>
-      <img
-        className='moviesCard__mask'
-        src={urlImage}
-        alt={movie.image.name}
+      <a
+        className="moviesCard__trailer-link"
+        href={movie.trailerLink}
+        style={{ backgroundImage: `url(${urlImage})` }}
+        target="_blank"
+        rel="noreferrer"
       />
       <button
         className={`
           moviesCard__save-button
-          ${savedMovie ? isSavedClass : ''}
+          ${savedMovie ? isSavedClass : ""}
         `}
-        type='button'
+        type="button"
         onClick={handleClickSaved}
       >
-        {`${savedMovie ? '' : 'Сохранить'}`}
+        {`${savedMovie ? "" : "Сохранить"}`}
       </button>
     </div>
   );

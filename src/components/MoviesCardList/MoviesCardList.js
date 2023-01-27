@@ -1,5 +1,5 @@
-import './MoviesCardList.css';
-import MoviesCard from '../MoviesCard/MoviesCard';
+import "./MoviesCardList.css";
+import MoviesCard from "../MoviesCard/MoviesCard";
 
 const MoviesCardList = ({
   movies,
@@ -13,10 +13,9 @@ const MoviesCardList = ({
   onGetUrlImage,
 }) => {
   return (
-    <div className='moviesCardList'>
-      <ul className='moviesCardList__container'>
-      {
-        movies.map((movie)=>
+    <div className="moviesCardList">
+      <ul className="moviesCardList__container">
+        {movies.map((movie) => (
           <MoviesCard
             key={movie[keyMovie]}
             movie={movie}
@@ -26,22 +25,19 @@ const MoviesCardList = ({
             savedMovies={savedMovies}
             onGetUrlImage={onGetUrlImage}
           />
-        )
-      }
+        ))}
       </ul>
-      {
-        isMoreButton &&
-          <button
-            className='moviesCardList__button'
-            type='button'
-            onClick={addFilms}
-          >
-            Ещё
-          </button>
-      }
-
+      {isMoreButton && (
+        <button
+          className="moviesCardList__button"
+          type="button"
+          onClick={addFilms}
+        >
+          Ещё
+        </button>
+      )}
     </div>
-  )
-}
+  );
+};
 
 export default MoviesCardList;

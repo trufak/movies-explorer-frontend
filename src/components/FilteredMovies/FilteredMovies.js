@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react';
-import SearchForm from '../SearchForm/SearchForm';
-import MoviesResultContent from '../MoviesResultContent/MoviesResultContent';
-import { getMoviesCount, addMoviesCount } from '../../utils/moviesCount';
-import { filterMovies } from '../../utils/filterMovies';
+import { useState, useEffect } from "react";
+import SearchForm from "../SearchForm/SearchForm";
+import MoviesResultContent from "../MoviesResultContent/MoviesResultContent";
+import { getMoviesCount, addMoviesCount } from "../../utils/moviesCount";
 
 const FilteredMovies = ({
   localDataMovies,
@@ -16,17 +15,16 @@ const FilteredMovies = ({
   keyMovie,
   onGetUrlImage,
 }) => {
-
-  const [findValue, setFindValue] = useState('');
+  const [findValue, setFindValue] = useState("");
   const [moviesCount, setMoviesCount] = useState(0);
-  const [typeContent, setTypeContent] = useState('');
+  const [typeContent, setTypeContent] = useState("");
   const [findMovies, setFindMovies] = useState([]);
   const [movies, setMovies] = useState([]);
 
-  useEffect(()=>{
+  useEffect(() => {
     setInitialMoviesCount();
     setFindValue(localDataMovies.findText);
-  },[localDataMovies]);
+  }, [localDataMovies]);
 
   /* Определение начального количества карточек */
   const setInitialMoviesCount = () => {
@@ -34,41 +32,58 @@ const FilteredMovies = ({
   };
 
   /* Фильтрация фильмов после изменения всех фильмов */
-  useEffect(()=>{
+  useEffect(() => {
     if (localDataMovies.allMovies) {
-      if (localDataMovies.allMovies.length>0) {
+      if (localDataMovies.allMovies.length > 0) {
         filterLocalMovies();
       }
     }
-  },[localDataMovies]);
+  }, [localDataMovies]);
+
+  const filterMovies = (movies, findName, isChort) => {
+    const regexp = new RegExp(findName, "i");
+    const fMovies = movies.filter(
+      (movie) =>
+        regexp.test(movie.nameRU) | regexp.test(movie.nameEN) &&
+        checkIsChortMovie(movie, isChort)
+    );
+    return fMovies;
+  };
+
+  const checkIsChortMovie = (movie, isChort) => {
+    if (isChort) {
+      return movie.duration <= 40;
+    }
+    return true;
+  };
 
   /* Фильтрация фильмов */
   const filterLocalMovies = () => {
-    setTypeContent('preloader');
+    setTypeContent("preloader");
     const fMovies = filterMovies(
       localDataMovies.allMovies,
       localDataMovies.findText,
-      localDataMovies.isChortMovies,
-    )
+      localDataMovies.isChortMovies
+    );
     if (fMovies.length > 0) {
       setFindMovies(fMovies);
     } else {
-      setTypeContent('notFound');
+      setTypeContent("notFound");
     }
   };
 
   /* Отображение фильмов при изменении массива отфильтрованных фильмов */
-  useEffect(()=>{
-    const renderMovies = findMovies.slice(0,moviesCount);
+  useEffect(() => {
+    const renderMovies = findMovies.slice(0, moviesCount);
     setMovies(renderMovies);
-  },[findMovies, moviesCount]);
+  }, [findMovies, moviesCount]);
 
   /* Обновление блока результатов при обновлении отфильтрованных фильмов */
-  useEffect(()=>{
-    if (movies.length>0) {
-      setTypeContent('movies');
-    };
-  },[movies, findMovies]);
+  useEffect(() => {
+    if (movies.length > 0) {
+      setTypeContent("movies");
+    }
+  }, [movies, findMovies]);
 
   /* Добавление фильмов кнопкой ещё */
   const handleAddFilms = () => {
@@ -84,10 +99,9 @@ const FilteredMovies = ({
   };
 
   const handleFindMovie = () => {
-    setTypeContent('preloader');
-    onFindMovie(findValue)
-    .catch((error)=>{
-      setTypeContent('serverError');
+    setTypeContent("preloader");
+    onFindMovie(findValue).catch((error) => {
+      setTypeContent("serverError");
       console.log(error);
     });
   };
@@ -95,12 +109,12 @@ const FilteredMovies = ({
   return (
     <div>
       <SearchForm
-        findValue = {findValue}
-        onChangeFindValue = {handleChangeFindValue}
-        isValid = {findValue || noValidationSearchRow}
+        findValue={findValue}
+        onChangeFindValue={handleChangeFindValue}
+        isValid={findValue || noValidationSearchRow}
         onSubmit={handleFindMovie}
-        isChortMovie = {localDataMovies.isChortMovies}
-        onChangeIsChortMovie = {handleChangeIsChortMovie}
+        isChortMovie={localDataMovies.isChortMovies}
+        onChangeIsChortMovie={handleChangeIsChortMovie}
       />
       <MoviesResultContent
         typeContent={typeContent}
@@ -115,7 +129,7 @@ const FilteredMovies = ({
         onGetUrlImage={onGetUrlImage}
       />
     </div>
-  )
-}
+  );
+};
 
 export default FilteredMovies;

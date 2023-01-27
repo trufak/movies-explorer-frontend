@@ -1,5 +1,4 @@
-import './SearchForm.css';
-import { useState, useEffect } from 'react';
+import "./SearchForm.css";
 
 const SearchForm = ({
   findValue,
@@ -9,7 +8,6 @@ const SearchForm = ({
   isChortMovie,
   onChangeIsChortMovie,
 }) => {
-
   const changeShortFilm = () => {
     onChangeIsChortMovie(!isChortMovie);
   };
@@ -21,21 +19,17 @@ const SearchForm = ({
   const handleSubmit = (event) => {
     event.preventDefault();
     onSubmit();
-  }
+  };
 
   return (
-    <form
-      className='searchForm'
-      onSubmit={handleSubmit}
-      noValidate
-    >
-      <div className='searchForm__search-row'>
+    <form className="searchForm" onSubmit={handleSubmit} noValidate>
+      <div className="searchForm__search-row">
         <input
-          className='searchForm__input'
-          type='text'
-          placeholder='Фильм'
-          name='find'
-          value={findValue || ''}
+          className="searchForm__input"
+          type="text"
+          placeholder="Фильм"
+          name="find"
+          value={findValue || ""}
           onChange={changeFindValue}
           required
         />
@@ -43,30 +37,29 @@ const SearchForm = ({
           className={`
             button
             searchForm__search-button
-            ${!isValid ? 'searchForm__search-button_disabled' : ''}
+            ${!isValid ? "searchForm__search-button_disabled" : ""}
           `}
-          type='submit'
-          disabled={!isValid}/>
+          type="submit"
+          disabled={!isValid}
+        />
       </div>
-      <p className = 'searchForm__error-input'>
-        {!isValid
-        ? 'Нужно ввести ключевое слово'
-        : ''}
+      <p className="searchForm__error-input">
+        {!isValid ? "Нужно ввести ключевое слово" : ""}
       </p>
-      <div className='searchForm__chortfilm'>
-        <div className='searchForm__chortfilm-content'>
+      <div className="searchForm__chortfilm">
+        <div className="searchForm__chortfilm-content">
           <button
-              type='button'
-              name='isChortMovie'
-              value={isChortMovie}
-              className={`
+            type="button"
+            name="isChortMovie"
+            value={isChortMovie}
+            className={`
                 button
                 searchForm__chortfilm-button
-                ${isChortMovie ? 'searchForm__chortfilm-button_true' : ''}
+                ${isChortMovie ? "searchForm__chortfilm-button_true" : ""}
               `}
-              onClick={changeShortFilm}
-            >
-              <div className='searchForm__chortfilm-circle' />
+            onClick={changeShortFilm}
+          >
+            <div className="searchForm__chortfilm-circle" />
           </button>
           <span>Короткометражки</span>
         </div>

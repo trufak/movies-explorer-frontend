@@ -1,24 +1,19 @@
-import './SavedMovies.css';
-import { useState, useEffect } from 'react';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
-import FilteredMovies from '../FilteredMovies/FilteredMovies';
+import "./SavedMovies.css";
+import { useState, useEffect } from "react";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import FilteredMovies from "../FilteredMovies/FilteredMovies";
 
-const SavedMovies = ({
-  loggedIn,
-  savedMovies,
-  onUnSaveMovie,
-}) => {
-
+const SavedMovies = ({ loggedIn, savedMovies, onUnSaveMovie }) => {
   const [localDataMovies, setLocalDataMovies] = useState({});
 
-  useEffect(()=>{
+  useEffect(() => {
     setLocalDataMovies({
       allMovies: savedMovies,
-      findText: localStorage.getItem('findSavedMoviesText'),
-      isChortMovies: JSON.parse(localStorage.getItem('isChortSavedMovies')),
+      findText: localStorage.getItem("findSavedMoviesText"),
+      isChortMovies: JSON.parse(localStorage.getItem("isChortSavedMovies")),
     });
-  },[savedMovies]);
+  }, [savedMovies]);
 
   const handleGetUrlImage = (movie) => {
     return movie.image;
@@ -33,8 +28,8 @@ const SavedMovies = ({
 
   /* Обработчик нажатия кнопки поиска */
   const handleFindMovie = (findValue) => {
-    localStorage.setItem('findSavedMoviesText', findValue);
-    localStorage.setItem('isChortSavedMovies', localDataMovies.isChortMovies);
+    localStorage.setItem("findSavedMoviesText", findValue);
+    localStorage.setItem("isChortSavedMovies", localDataMovies.isChortMovies);
     setLocalDataMovies({
       ...localDataMovies,
       findText: findValue,
@@ -43,24 +38,24 @@ const SavedMovies = ({
   };
 
   return (
-    <div className='saved-movies'>
+    <div className="saved-movies">
       <Header loggedIn={loggedIn} />
       <main>
         <FilteredMovies
-          noValidationSearchRow = {true}
+          noValidationSearchRow={true}
           localDataMovies={localDataMovies}
-          isSavedClass='moviesCard__save-button_delete'
+          isSavedClass="moviesCard__save-button_delete"
           onUnSaveMovie={onUnSaveMovie}
           savedMovies={savedMovies}
-          keyMovie='movieId'
+          keyMovie="movieId"
           onGetUrlImage={handleGetUrlImage}
           onChangeIsChortMovie={handleChangeIsChortMovie}
           onFindMovie={handleFindMovie}
-          />
+        />
       </main>
       <Footer />
     </div>
-  )
+  );
 };
 
 export default SavedMovies;
