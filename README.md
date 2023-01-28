@@ -10,6 +10,7 @@
 * ссылка на макет (яндекс диск): https://disk.yandex.ru/d/RRraYSkODv9PQg
 * GH: https://github.com/trufak/movies-explorer-frontend
 * https://diplom.trufakin.nomoredomains.club
+* ссылка на pull request: https://github.com/trufak/movies-explorer-frontend/pull/3
 
 **Технологии**
 
