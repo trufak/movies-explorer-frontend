@@ -25,6 +25,7 @@ const Movies = ({ loggedIn, onSaveMovie, onUnSaveMovie, savedMovies }) => {
         ...localDataMovies,
         findText: findValue,
       });
+      return Promise.resolve();
     } else {
       return moviesApi.getMovies().then((data) => {
         localStorage.setItem("allMovies", JSON.stringify(data));

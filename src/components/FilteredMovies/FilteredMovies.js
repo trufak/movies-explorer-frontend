@@ -96,7 +96,8 @@ const FilteredMovies = ({
 
   const handleFindMovie = () => {
     setTypeContent("preloader");
-    onFindMovie(findValue).catch((error) => {
+    onFindMovie(findValue)
+    .catch((error) => {
       setTypeContent("serverError");
       console.log(error);
     });
