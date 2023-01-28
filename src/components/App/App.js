@@ -37,7 +37,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("savedMovies", savedMovies);
+    localStorage.setItem("savedMovies", JSON.stringify(savedMovies));
   }, [savedMovies]);
 
   const getCurrentUser = () => {

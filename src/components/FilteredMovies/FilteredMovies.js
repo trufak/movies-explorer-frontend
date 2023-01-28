@@ -24,21 +24,17 @@ const FilteredMovies = ({
   useEffect(() => {
     setInitialMoviesCount();
     setFindValue(localDataMovies.findText);
-  }, [localDataMovies]);
-
-  /* Определение начального количества карточек */
-  const setInitialMoviesCount = () => {
-    setMoviesCount(getMoviesCount());
-  };
-
-  /* Фильтрация фильмов после изменения всех фильмов */
-  useEffect(() => {
     if (localDataMovies.allMovies) {
       if (localDataMovies.allMovies.length > 0) {
         filterLocalMovies();
       }
     }
   }, [localDataMovies]);
+
+  /* Определение начального количества карточек */
+  const setInitialMoviesCount = () => {
+    setMoviesCount(getMoviesCount());
+  };
 
   const filterMovies = (movies, findName, isChort) => {
     const regexp = new RegExp(findName, "i");

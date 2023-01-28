@@ -10,7 +10,7 @@ const SavedMovies = ({ loggedIn, savedMovies, onUnSaveMovie }) => {
   useEffect(() => {
     setLocalDataMovies({
       allMovies: savedMovies,
-      findText: localStorage.getItem("findSavedMoviesText"),
+      findText: localStorage.getItem("findSavedMoviesText") || "",
       isChortMovies: JSON.parse(localStorage.getItem("isChortSavedMovies")),
     });
   }, [savedMovies]);
