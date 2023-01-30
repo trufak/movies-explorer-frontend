@@ -86,6 +86,8 @@ const Profile = ({ loggedIn, onUpdateUser, onLogout }) => {
                 placeholder="E-mail"
                 value={values.email || ""}
                 onChange={handleChange}
+                required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
               />
             </li>
           </ul>
@@ -102,12 +104,16 @@ const Profile = ({ loggedIn, onUpdateUser, onLogout }) => {
               button
               profile__submit-button
               ${
-                !isValid || user.name === values.name
+                !isValid ||
+                (user.name === values.name &&
+                  user.email === values.email)
                   ? "profile__submit-button_disabled"
                   : ""
               }
             `}
-            disabled={!isValid}
+            disabled={!isValid ||
+              (user.name === values.name &&
+                user.email === values.email) }
           >
             Редактировать
           </button>

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesResultContent from "../MoviesResultContent/MoviesResultContent";
 import { getMoviesCount, addMoviesCount } from "../../utils/moviesCount";
+import { durationChortMovie } from "../../utils/constants";
 
 const FilteredMovies = ({
   localDataMovies,
@@ -48,7 +49,7 @@ const FilteredMovies = ({
 
   const checkIsChortMovie = (movie, isChort) => {
     if (isChort) {
-      return movie.duration <= 40;
+      return movie.duration <= durationChortMovie;
     }
     return true;
   };

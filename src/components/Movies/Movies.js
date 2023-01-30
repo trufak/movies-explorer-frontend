@@ -11,8 +11,8 @@ const Movies = ({ loggedIn, onSaveMovie, onUnSaveMovie, savedMovies }) => {
   useEffect(() => {
     setLocalDataMovies({
       allMovies: JSON.parse(localStorage.getItem("allMovies")),
-      findText: localStorage.getItem("findMoviesText"),
-      isChortMovies: JSON.parse(localStorage.getItem("isChortMovies")),
+      findText: localStorage.getItem("findMoviesText") || "",
+      isChortMovies: JSON.parse(localStorage.getItem("isChortMovies")) || false,
     });
   }, []);
 
@@ -45,6 +45,7 @@ const Movies = ({ loggedIn, onSaveMovie, onUnSaveMovie, savedMovies }) => {
       ...localDataMovies,
       isChortMovies: isChortMovies,
     });
+    localStorage.setItem("isChortMovies", isChortMovies);
   };
 
   const handleGetUrlImage = (movie) => {

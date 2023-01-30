@@ -5,13 +5,14 @@ import Footer from "../Footer/Footer";
 import FilteredMovies from "../FilteredMovies/FilteredMovies";
 
 const SavedMovies = ({ loggedIn, savedMovies, onUnSaveMovie }) => {
+
   const [localDataMovies, setLocalDataMovies] = useState({});
 
   useEffect(() => {
     setLocalDataMovies({
       allMovies: savedMovies,
-      findText: localStorage.getItem("findSavedMoviesText") || "",
-      isChortMovies: JSON.parse(localStorage.getItem("isChortSavedMovies")),
+      findText: "",
+      isChortMovies: false,
     });
   }, [savedMovies]);
 
@@ -28,8 +29,6 @@ const SavedMovies = ({ loggedIn, savedMovies, onUnSaveMovie }) => {
 
   /* Обработчик нажатия кнопки поиска */
   const handleFindMovie = (findValue) => {
-    localStorage.setItem("findSavedMoviesText", findValue);
-    localStorage.setItem("isChortSavedMovies", localDataMovies.isChortMovies);
     setLocalDataMovies({
       ...localDataMovies,
       findText: findValue,

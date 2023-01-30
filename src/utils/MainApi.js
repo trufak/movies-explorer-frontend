@@ -88,6 +88,7 @@ class MainApi {
 
 const mainApi = new MainApi({
   baseUrl: 'https://api.diplom.trufakin.nomoredomains.club'
+/*   baseUrl: 'http://localhost:3001' */
 });
 
 export default mainApi;

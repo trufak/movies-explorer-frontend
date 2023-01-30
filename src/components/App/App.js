@@ -1,4 +1,4 @@
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./App.css";
 import Main from "../Main/Main";
@@ -18,6 +18,7 @@ function App() {
   const [savedMovies, setSavedMovies] = useState([]);
 
   const navigate = useNavigate();
+  let location = useLocation();
 
   useEffect(() => {
     const token = localStorage.getItem("tokenMovies");
@@ -26,15 +27,29 @@ function App() {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       };
-      Promise.all([getCurrentUser(), mainApi.getMovies()])
-        .then(([currentUserInfo, sMovies]) => {
-          setLoggedIn(true);
-          setSavedMovies(sMovies);
-          navigate("/movies");
-        })
-        .catch((err) => console.log(err));
+      getCurrentUser()
+      .then(() => {
+        setLoggedIn(true);
+        if ( location.pathname !== "/signup" &&
+          location.pathname !== "/signin") {
+            navigate(location.pathname);
+        } else {
+          navigate("/");
+        }
+      })
+      .catch((err) => console.log(err));
     }
   }, []);
+
+  useEffect(()=>{
+    if (loggedIn) {
+      mainApi.getMovies()
+      .then((sMovies)=>{
+        setSavedMovies(sMovies);
+      })
+      .catch((err) => console.log(err));
+    }
+  },[loggedIn])
 
   useEffect(() => {
     localStorage.setItem("savedMovies", JSON.stringify(savedMovies));
@@ -62,8 +77,13 @@ function App() {
 
   const handleLogout = () => {
     localStorage.removeItem("tokenMovies");
+    localStorage.removeItem("allMovies");
+    localStorage.removeItem("findMoviesText");
+    localStorage.removeItem("isChortMovies");
+    localStorage.removeItem("savedMovies");
     setLoggedIn(false);
     setCurrentUser({});
+    setSavedMovies([]);
     navigate("/");
   };
 
@@ -114,7 +134,7 @@ function App() {
         <CurrentUserContext.Provider value={currentUser}>
           <Routes>
             <Route path="/" element={<Main loggedIn={loggedIn} />} />
-            <Route element={<ProtectedRoute loggedIn={loggedIn} />}>
+            <Route path="/movies" element={<ProtectedRoute loggedIn={loggedIn} />}>
               <Route
                 path="/movies"
                 element={
@@ -127,7 +147,7 @@ function App() {
                 }
               />
             </Route>
-            <Route element={<ProtectedRoute loggedIn={loggedIn} />}>
+            <Route path="/saved-movies" element={<ProtectedRoute loggedIn={loggedIn} />}>
               <Route
                 path="/saved-movies"
                 element={
@@ -139,7 +159,7 @@ function App() {
                 }
               />
             </Route>
-            <Route element={<ProtectedRoute loggedIn={loggedIn} />}>
+            <Route path="/profile" element={<ProtectedRoute loggedIn={loggedIn} />}>
               <Route
                 path="/profile"
                 element={
