@@ -1,29 +1,76 @@
-import './Movies.css';
-import { useState } from 'react';
-import Header from '../Header/Header';
-import SearchForm from '../SearchForm/SearchForm';
-import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import moviesData from '../../utils/moviesData';
-import Footer from '../Footer/Footer';
+import "./Movies.css";
+import { useState, useEffect } from "react";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import moviesApi from "../../utils/MoviesApi";
+import FilteredMovies from "../FilteredMovies/FilteredMovies";
 
-const Movies = ({ loggedIn }) => {
+const Movies = ({ loggedIn, onSaveMovie, onUnSaveMovie, savedMovies }) => {
+  const [localDataMovies, setLocalDataMovies] = useState({});
 
-  const [movies, setMovies] = useState(moviesData);
+  useEffect(() => {
+    setLocalDataMovies({
+      allMovies: JSON.parse(localStorage.getItem("allMovies")),
+      findText: localStorage.getItem("findMoviesText") || "",
+      isChortMovies: JSON.parse(localStorage.getItem("isChortMovies")) || false,
+    });
+  }, []);
+
+  /* Обработчик нажатия кнопки поиска */
+  const handleFindMovie = (findValue) => {
+    if (localDataMovies.allMovies) {
+      localStorage.setItem("findMoviesText", findValue);
+      localStorage.setItem("isChortMovies", localDataMovies.isChortMovies);
+      setLocalDataMovies({
+        ...localDataMovies,
+        findText: findValue,
+      });
+      return Promise.resolve();
+    } else {
+      return moviesApi.getMovies().then((data) => {
+        localStorage.setItem("allMovies", JSON.stringify(data));
+        localStorage.setItem("findMoviesText", findValue);
+        localStorage.setItem("isChortMovies", localDataMovies.isChortMovies);
+        setLocalDataMovies({
+          allMovies: data,
+          findText: findValue,
+        });
+        return data;
+      });
+    }
+  };
+
+  const handleChangeIsChortMovie = (isChortMovies) => {
+    setLocalDataMovies({
+      ...localDataMovies,
+      isChortMovies: isChortMovies,
+    });
+    localStorage.setItem("isChortMovies", isChortMovies);
+  };
+
+  const handleGetUrlImage = (movie) => {
+    return `https://api.nomoreparties.co${movie.image.url}`;
+  };
 
   return (
-    <div>
+    <div className="movies">
       <Header loggedIn={loggedIn} />
       <main>
-        <SearchForm />
-        <MoviesCardList
-          movies={movies}
-          isSavedClass='moviesCard__save-button_isSaved'
-          isMoreButton={true}
+        <FilteredMovies
+          localDataMovies={localDataMovies}
+          onChangeIsChortMovie={handleChangeIsChortMovie}
+          onFindMovie={handleFindMovie}
+          isSavedClass="moviesCard__save-button_isSaved"
+          onSaveMovie={onSaveMovie}
+          onUnSaveMovie={onUnSaveMovie}
+          savedMovies={savedMovies}
+          keyMovie="id"
+          onGetUrlImage={handleGetUrlImage}
         />
       </main>
       <Footer />
     </div>
-  )
+  );
 };
 
 export default Movies;

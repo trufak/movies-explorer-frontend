@@ -1,0 +1,30 @@
+.movies {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr;
+  align-items: start;
+}
+
+.movies__result-text {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 35px;
+  line-height: 38px;
+  font-weight: 400;
+  color: #8B8B8B;
+  width: 70%;
+}
+
+@media screen and (max-width: 768px) {
+  .movies__result-text {
+    font-size: 25px;
+    line-height: 28px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .movies__result-text {
+    font-size: 16px;
+    line-height: 18px;
+  }
+}

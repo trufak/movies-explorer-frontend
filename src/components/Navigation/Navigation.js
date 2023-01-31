@@ -1,14 +1,14 @@
-import { NavLink } from 'react-router-dom';
-import './Navigation.css';
+import { NavLink } from "react-router-dom";
+import "./Navigation.css";
 
 const Navigation = () => {
   return (
-    <nav className='navigation'>
-      <ul className='navigation__links'>
+    <nav className="navigation">
+      <ul className="navigation__links">
         <li>
           <NavLink
-            to='/'
-            className={({isActive})=>
+            to="/"
+            className={({ isActive }) =>
               `link
               ${isActive && "link_active navigation__link_active"}
               navigation__link
@@ -20,32 +20,29 @@ const Navigation = () => {
         </li>
         <li>
           <NavLink
-            className={({isActive})=>`
+            className={({ isActive }) => `
               link
               ${isActive && "link_active navigation__link_active"}
-              navigation__link`
-            }
-            to='/movies'
-            >
-              Фильмы
-            </NavLink>
+              navigation__link`}
+            to="/movies"
+          >
+            Фильмы
+          </NavLink>
         </li>
         <li>
           <NavLink
-            className={({isActive})=>`
+            className={({ isActive }) => `
               link
               ${isActive && "link_active navigation__link_active"}
-              navigation__link`
-            }
-            to='/saved-movies'
-            >
-              Сохраненные фильмы
+              navigation__link`}
+            to="/saved-movies"
+          >
+            Сохраненные фильмы
           </NavLink>
         </li>
       </ul>
     </nav>
-
-  )
+  );
 };
 
 export default Navigation;
